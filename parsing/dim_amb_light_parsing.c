@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_amb_light_parse.c                              :+:      :+:    :+:   */
+/*   dim_amb_light_parsing.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/08/11 02:15:46 by dim              ###   ########.fr       */
+/*   Updated: 2021/08/15 04:03:19 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse.h"
+#include "dim_amb_light.h"
 
 void	amb_light_parsing(t_render *render, char **split_line)
 {
@@ -30,9 +30,9 @@ void	amb_light_parsing(t_render *render, char **split_line)
 	render->world.ambient_light = save_amb_light(light_ratio, &rgb);
 	if (render->world.ambient_light == NULL)
 		error(NULL);
-	printf("x : %f\ny : %f\nz : %f\n", \
-/* 	render->world.ambient_light->x, \
-	render->world.ambient_light->y, render->world.ambient_light->z); */
+	// printf("x : %f\ny : %f\nz : %f\n", \
+	// render->world.ambient_light->x, \
+	// render->world.ambient_light->y, render->world.ambient_light->z);
 }
 
 bool		validate_amb_light(double light_ratio, t_vector *rgb)

@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"dim_parse.h": "c"
+		"dim_parse.h": "c",
+		"__bit_reference": "cpp",
+		"algorithm": "cpp",
+		"vector": "cpp"
 	}
 }

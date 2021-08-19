@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:44:00 by dim               #+#    #+#             */
-/*   Updated: 2021/08/11 02:14:53 by dim              ###   ########.fr       */
+/*   Updated: 2021/08/17 03:27:14 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	find_element(t_parser *parser)
 {
 	if (!ft_strcmp(parser->split_line[0], "A"))
 		amb_light_parsing(parser->render, parser->split_line);
-	/* else if (!ft_strcmp(parser->split_line[0], "C"))
-		cam_parsing(parser);
+	else if (!ft_strcmp(parser->split_line[0], "C"))
+		cam_parsing(parser->render, parser->split_line);
 	else if (!ft_strcmp(parser->split_line[0], "L"))
 		light_parsing(parser);
 	else if (!ft_strcmp(parser->split_line[0], "sp"))
@@ -25,7 +25,7 @@ void	find_element(t_parser *parser)
 	else if (!ft_strcmp(parser->split_line[0], "pl"))
 		plane_parsing(parser);
 	else if (!ft_strcmp(parser->split_line[0], "cy"))
-		cylinder_parsing(parser); */
+		cylinder_parsing(parser);
 	else
 		error("Wrong identifier");
 }
