@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:44:00 by dim               #+#    #+#             */
-/*   Updated: 2021/08/17 03:27:14 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/12 05:10:28 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	find_element(t_parser *parser)
 	else if (!ft_strcmp(parser->split_line[0], "C"))
 		cam_parsing(parser->render, parser->split_line);
 	else if (!ft_strcmp(parser->split_line[0], "L"))
-		light_parsing(parser);
+		light_parsing(parser); //인자 고치고 헤더랑 연결
 	else if (!ft_strcmp(parser->split_line[0], "sp"))
-		sphere_parsing(parser);
+		sphere_parsing(parser); // "
 	else if (!ft_strcmp(parser->split_line[0], "pl"))
-		plane_parsing(parser);
+		plane_parsing(parser); // "
 	else if (!ft_strcmp(parser->split_line[0], "cy"))
-		cylinder_parsing(parser);
+		cylinder_parsing(parser); // "
 	else
 		error("Wrong identifier");
 }

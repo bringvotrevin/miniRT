@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:58:59 by dim               #+#    #+#             */
-/*   Updated: 2021/08/15 17:46:58 by dim              ###   ########.fr       */
+/*   Updated: 2021/08/24 17:54:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ typedef struct		s_light
 {
 	t_vector		origin;
 	t_vector		color;
-	struct s_light	*next;
 }					t_light;
 
 void		light_parsing(t_render *render, char **split_line);

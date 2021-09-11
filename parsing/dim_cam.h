@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:59:02 by dim               #+#    #+#             */
-/*   Updated: 2021/08/15 17:48:31 by dim              ###   ########.fr       */
+/*   Updated: 2021/08/24 17:54:01 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct	s_camera
 	double			viewport_ratio;
 	double			tilt;
 	double			pan;
-	struct s_cam	*next;
 }				t_camera;
 
 void		cam_parsing(t_render *render, char **split_line);
