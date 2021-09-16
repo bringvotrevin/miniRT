@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_cam.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:59:02 by dim               #+#    #+#             */
-/*   Updated: 2021/08/24 17:54:01 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/16 20:08:32 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@
 typedef struct	s_camera
 {
 	t_vector		origin;
+	// t_vector		orient;
+	t_vector		matrix[3]; // from jwkim code
 	t_vector		x_axis;
 	t_vector		y_axis;
 	t_vector		z_axis;
 	double			fov;
+	double			pan;	
+	double			tilt;
 	double			viewport_width;
 	double			viewport_height;
 	double			viewport_ratio;
-	double			tilt;
-	double			pan;
 }				t_camera;
 
 void		cam_parsing(t_render *render, char **split_line);

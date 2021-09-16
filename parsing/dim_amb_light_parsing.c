@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_amb_light_parsing.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/08/15 04:03:19 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/16 20:13:20 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	amb_light_parsing(t_render *render, char **split_line)
 	 !validate_vec(split_line[2]))
 		error("Information error on Ambien lightning");
 	light_ratio = ft_atof(split_line[1]);
-	// printf("13\n");
 	split_vec(&rgb, split_line[2]);
 	if (!validate_amb_light(light_ratio, &rgb))
 		error("Information range error on Ambient lightning");

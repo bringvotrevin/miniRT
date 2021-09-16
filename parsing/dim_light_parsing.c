@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   dim_light_parsing.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/08/15 04:10:58 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/16 20:54:01 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_light.h"
+#include "dim_render.h"
 
 void		light_parsing(t_render *render, char **split_line)
 {

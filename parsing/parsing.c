@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:20:40 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/07/27 04:46:25 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/16 20:11:36 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		parsing_front(void)
 	return (1);
 }
 
-int		parsing_back(char	*file_name)
+int		parsing_back(char *file_name)
 {
 	t_info	*info;
 	t_info	*head;

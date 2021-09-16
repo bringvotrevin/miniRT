@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   dim_cam_parsing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/08/15 04:11:16 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/16 20:56:00 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_cam.h"
+#include "dim_render.h"
 
 void	cam_parsing(t_render *render, char **split_line)
 {
