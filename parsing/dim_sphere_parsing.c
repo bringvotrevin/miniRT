@@ -6,11 +6,37 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/08/17 04:14:54 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/24 04:28:22 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "dim_parse.h"
 #include "dim_sphere.h"
+
+bool	validate_sphere(t_vector rgb)
+{
+	bool	flag;
+
+	flag = true;
+	if (rgb.x < 0 || rgb.x > 255 || \
+	rgb.y < 0 || rgb.y > 255 || \
+	rgb.z < 0 || rgb.z > 255)
+	 	flag = false;
+	return (flag);
+}
+
+t_sphere	*save_sphere(t_vector origin, double diameter, t_vector rgb1)
+{
+	t_sphere	*sphere;
+
+	sphere = (t_sphere *)malloc(sizeof(t_sphere));
+	if (sphere == NULL)
+		return (NULL);
+	sphere->center = origin;
+	sphere->radius = (diameter / 2);
+	sphere->rgb = rgb1;
+	return (sphere);
+}
 
 void		sphere_parsing(t_render *render, char **split_line)
 {
@@ -32,32 +58,5 @@ void		sphere_parsing(t_render *render, char **split_line)
 	render->world.object->object = save_sphere(origin, diameter, rgb);
 	if (render->world.object->object == NULL)
 		error(NULL);
-	// printf("x : %f\ny : %f\nz : %f\n", \
-	// render->world.ambient_light->x, \
-	// render->world.ambient_light->y, render->world.ambient_light->z);
 }
 
-bool	validate_sphere(t_vector rgb)
-{
-	bool	flag;
-
-	flag = true;
-	if (rgb.x < 0 || rgb.x > 255 ||\
-	 rgb.y < 0 || rgb.y > 255 ||\
-	 rgb.z < 0 || rgb.z > 255)
-	 	flag = false;
-	return (flag);
-}
-
-t_sphere	*save_sphere(t_vector origin, double diameter, t_vector rgb1)
-{
-	t_sphere	*sphere;
-
-	sphere = (t_sphere *)malloc(sizeof(t_sphere));
-	if (sphere == NULL)
-		return (NULL);
-	sphere->center = origin;
-	sphere->radius = (diameter / 2);
-	sphere->rgb = rgb1;
-	return (sphere);
-}

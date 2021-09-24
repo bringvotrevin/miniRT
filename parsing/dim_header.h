@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 17:44:17 by dim               #+#    #+#             */
-/*   Updated: 2021/08/15 17:52:25 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/17 03:53:12 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ typedef struct	s_trace
 {
 	void		*mlx;
 }				t_trace;
+
+typedef struct	s_ray
+{
+	t_vector	origin;
+	t_vector	dir;
+	double		time;
+}				t_ray; // from jwkim
 
 void		error(char *msg);
 

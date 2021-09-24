@@ -3,6 +3,13 @@
 		"dim_parse.h": "c",
 		"__bit_reference": "cpp",
 		"algorithm": "cpp",
-		"vector": "cpp"
-	}
+		"vector": "cpp",
+		"dim_object.h": "c",
+		"dim_light.h": "c",
+		"dim_cam.h": "c",
+		"dim_amb_light.h": "c",
+		"dim_cylinder.h": "c",
+		"dim_sphere.h": "c"
+	},
+	"editor.minimap.enabled": false
 }

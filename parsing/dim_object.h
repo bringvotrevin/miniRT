@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 04:13:50 by dim               #+#    #+#             */
-/*   Updated: 2021/08/18 19:03:04 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/17 03:51:49 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIM_OBJECT_H
 # define DIM_OBJECT_H
-# include "dim_parse.h"
+# include "dim_header.h"
 
 typedef struct			s_object_toolbox
 {

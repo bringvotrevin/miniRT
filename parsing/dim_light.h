@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_light.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:58:59 by dim               #+#    #+#             */
-/*   Updated: 2021/09/16 20:52:55 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/17 16:17:20 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,5 @@ typedef struct		s_light
 	t_vector		origin;
 	t_vector		color;
 }					t_light;
-
-void		light_parsing(t_render *render, char **split_line);
-bool		validate_light(double bright, t_vector rgb);
-t_light		*save_light(t_vector origin1, double bright, t_vector rgb);
 
 #endif

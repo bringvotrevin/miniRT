@@ -6,13 +6,14 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:48:27 by dim               #+#    #+#             */
-/*   Updated: 2021/08/15 17:46:08 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/17 18:24:44 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIM_PARSE_H
 # define DIM_PARSE_H
 # include "dim_render.h"
+# include "dim_parse_util.h"
 
 typedef struct	s_parser
 {
@@ -22,13 +23,14 @@ typedef struct	s_parser
 	char		**split_line;
 }				t_parser;
 
-void		parsing(int argc, char *argv[], t_render *render);
-int			check_input(int	argc, char	**argv);
-void		find_element(t_parser *parser);
-void		split_vec(t_vector *rgb, char *line);
-bool		validate_vec(char *line);
-int			validate_float(char *line);
-int			count_split_line(char **line);
-void		free_split_line(char **split_line);
+void	parsing(int argc, char *argv[], t_render *render);
+void	find_element(t_parser *parser);
+
+void	amb_light_parsing(t_render *render, char **split_line);
+void	light_parsing(t_render *render, char **split_line);
+void	cam_parsing(t_render *render, char **split_line);
+void	cylinder_parsing(t_render *render, char **split_line);
+void	plane_parsing(t_render *render, char **split_line);
+void	sphere_parsing(t_render *render, char **split_line);
 
 #endif

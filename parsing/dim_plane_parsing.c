@@ -6,36 +6,12 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:23 by dim               #+#    #+#             */
-/*   Updated: 2021/08/18 19:06:50 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/24 04:28:11 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "dim_parse.h"
 #include "dim_plane.h"
-
-void		plane_parsing(t_render *render, char **split_line)
-{
-	t_vector	origin;
-	t_vector	orient;
-	t_vector	rgb;
-
-	if (count_split_line(split_line) != 4)
-		error("Information count error on Plane");
-	if (!validate_vec(split_line[1]) ||\
-	 !validate_vec(split_line[2]) ||\
-	 !validate_vec(split_line[3]))
-		error("Information error on Plane");
-	split_vec(&origin, split_line[1]);
-	split_vec(&orient, split_line[2]);
-	split_vec(&rgb, split_line[3]);
-	if (!validate_plane(orient, rgb))
-		error("Information range error on Plane");
-	render->world.object->object = save_plane(origin, orient, rgb);
-	if (render->world.object->object == NULL)
-		error(NULL);
-	// printf("x : %f\ny : %f\nz : %f\n", \
-	// render->world.ambient_light->x, \
-	// render->world.ambient_light->y, render->world.ambient_light->z);
-}
 
 bool	validate_plane(t_vector orient, t_vector rgb)
 {
@@ -64,3 +40,26 @@ t_plane		*save_plane(t_vector origin, t_vector orient, t_vector rgb1)
 	plane->orient = orient; //수정필요
 	plane->rgb = rgb1; //수정필요
 }
+
+void		plane_parsing(t_render *render, char **split_line)
+{
+	t_vector	origin;
+	t_vector	orient;
+	t_vector	rgb;
+
+	if (count_split_line(split_line) != 4)
+		error("Information count error on Plane");
+	if (!validate_vec(split_line[1]) ||\
+	 !validate_vec(split_line[2]) ||\
+	 !validate_vec(split_line[3]))
+		error("Information error on Plane");
+	split_vec(&origin, split_line[1]);
+	split_vec(&orient, split_line[2]);
+	split_vec(&rgb, split_line[3]);
+	if (!validate_plane(orient, rgb))
+		error("Information range error on Plane");
+	render->world.object->object = save_plane(origin, orient, rgb);
+	if (render->world.object->object == NULL)
+		error(NULL);
+}
+

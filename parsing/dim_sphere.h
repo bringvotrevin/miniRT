@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:58:55 by dim               #+#    #+#             */
-/*   Updated: 2021/08/17 03:30:24 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/17 16:24:22 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIM_SPHERE_H
 # define DIM_SPHERE_H
-# include "dim_object.h"
+# include "dim_header.h"
 
 typedef struct	s_sphere
 {

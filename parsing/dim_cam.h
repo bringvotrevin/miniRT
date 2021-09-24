@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_cam.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:59:02 by dim               #+#    #+#             */
-/*   Updated: 2021/09/16 20:08:32 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/17 16:18:14 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,5 @@ typedef struct	s_camera
 	double			viewport_height;
 	double			viewport_ratio;
 }				t_camera;
-
-void		cam_parsing(t_render *render, char **split_line);
-bool		validate_cam(t_vector unit_vec, double *fov);
-t_camera	*save_cam(t_vector viewpoint, t_vector unit_vec, double fov1);
 
 #endif
