@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_amb_light_parsing.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/09/25 05:21:37 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/28 21:56:18 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_vector	*save_amb_light(double light_ratio, t_vector *rgb)
 	aloc_rgb = (t_vector *)malloc(sizeof(t_vector));
 	if (aloc_rgb == NULL)
 		return (NULL);
-	aloc_rgb = rgb; // 추가
+	*aloc_rgb = product_vec
 	return (aloc_rgb);
 }
 

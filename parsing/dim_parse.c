@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:44:00 by dim               #+#    #+#             */
-/*   Updated: 2021/09/17 20:02:29 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/28 20:57:03 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	find_element(t_parser *parser)
 		amb_light_parsing(parser->render, parser->split_line);
 	else if (!ft_strcmp(parser->split_line[0], "C"))
 		cam_parsing(parser->render, parser->split_line);
-	// else if (!ft_strcmp(parser->split_line[0], "L"))
-	// 	light_parsing(parser->render, parser->split_line);
-	// else if (!ft_strcmp(parser->split_line[0], "sp"))
-	// 	sphere_parsing(parser->render, parser->split_line);
-	// else if (!ft_strcmp(parser->split_line[0], "pl"))
-	// 	plane_parsing(parser->render, parser->split_line);
-	// else if (!ft_strcmp(parser->split_line[0], "cy"))
-	// 	cylinder_parsing(parser->render, parser->split_line);
+	else if (!ft_strcmp(parser->split_line[0], "L"))
+		light_parsing(parser->render, parser->split_line);
+	else if (!ft_strcmp(parser->split_line[0], "sp"))
+		sphere_parsing(parser->render, parser->split_line);
+	else if (!ft_strcmp(parser->split_line[0], "pl"))
+		plane_parsing(parser->render, parser->split_line);
+	else if (!ft_strcmp(parser->split_line[0], "cy"))
+		cylinder_parsing(parser->render, parser->split_line);
 	else
 		error("Wrong identifier");
 }
@@ -42,9 +42,9 @@ int			check_input(int	argc, char	**argv)
 	ext = ft_strlen(argv[1]);
 	if (ext < 4)
 		error("Wrong file");
-	if (argv[1][ext - 3] != '.' \
-	|| argv[1][ext - 2] != 'r' \
-	|| argv[1][ext - 1] != 't')
+	if (argv[1][ext - 3] != '.'
+		|| argv[1][ext - 2] != 'r'
+		|| argv[1][ext - 1] != 't')
 		error("Wrong file type");
 	if (argc == 3)
 	{

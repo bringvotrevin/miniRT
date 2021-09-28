@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_cylinder_parsing.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/09/24 03:46:02 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/28 21:01:30 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ bool	validate_cylinder(t_vector orient, t_vector rgb)
 	bool	flag;
 
 	flag = true;
-	if (orient.x < -1 || orient.x > 1 ||\
-	 orient.y < -1 || orient.y > 1 ||\
-	 orient.z < -1 || orient.z > 1)
+	if (orient.x < -1 || orient.x > 1
+		|| orient.y < -1 || orient.y > 1
+		|| orient.z < -1 || orient.z > 1)
 		flag = false;
-	if (rgb.x < 0 || rgb.x > 255 ||\
-	 rgb.y < 0 || rgb.y > 255 ||\
-	 rgb.z < 0 || rgb.z > 255)
+	if (rgb.x < 0 || rgb.x > 255
+		|| rgb.y < 0 || rgb.y > 255
+		|| rgb.z < 0 || rgb.z > 255)
 	 	flag = false;
 	return (flag);
 }
 
-t_cylinder	*save_cylinder(t_vector origin, t_vector orient1, \
-double diameter, double height1, t_vector rgb1)
+t_cylinder	*save_cylinder(t_vector origin, t_vector orient1,
+							double diameter, double height1, t_vector rgb1)
 {
 	t_cylinder		*cylinder;
 
@@ -57,11 +57,11 @@ void		cylinder_parsing(t_render *render, char **split_line)
 
 	if (count_split_line(split_line) != 6)
 		error("Information count error on Cylinder");
-	if (!validate_vec(split_line[1]) ||\
-	 !validate_vec(split_line[2]) ||\
-	 !validate_float(split_line[3]) ||\
-	 !validate_float(split_line[4]) ||\
-	 !validate_vec(split_line[5]))
+	if (!validate_vec(split_line[1])
+		|| !validate_vec(split_line[2])
+		|| !validate_float(split_line[3])
+		|| !validate_float(split_line[4])
+		|| !validate_vec(split_line[5]))
 		error("Information error on Cylinder");
 	split_vec(&origin, split_line[1]);
 	split_vec(&orient, split_line[2]);
@@ -70,8 +70,8 @@ void		cylinder_parsing(t_render *render, char **split_line)
 	split_vec(&rgb, split_line[5]);
 	if (!validate_cylinder(orient, rgb))
 		error("Information range error on Cylinder");
-	render->world.object->object = \
-	save_cylinder(origin, orient, diameter, height, rgb);
+	render->world.object->object = 
+		save_cylinder(origin, orient, diameter, height, rgb);
 	if (render->world.object->object == NULL)
 		error(NULL);
 }

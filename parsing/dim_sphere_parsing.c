@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_sphere_parsing.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/09/24 04:28:22 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/28 20:59:09 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ bool	validate_sphere(t_vector rgb)
 	bool	flag;
 
 	flag = true;
-	if (rgb.x < 0 || rgb.x > 255 || \
-	rgb.y < 0 || rgb.y > 255 || \
-	rgb.z < 0 || rgb.z > 255)
+	if (rgb.x < 0 || rgb.x > 255
+		|| rgb.y < 0 || rgb.y > 255
+		|| rgb.z < 0 || rgb.z > 255)
 	 	flag = false;
 	return (flag);
 }
@@ -46,9 +46,9 @@ void		sphere_parsing(t_render *render, char **split_line)
 
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Sphere");
-	if (!validate_vec(split_line[1]) ||\
-	 !validate_float(split_line[2]) ||\
-	 !validate_vec(split_line[3]))
+	if (!validate_vec(split_line[1])
+		|| !validate_float(split_line[2])
+		|| !validate_vec(split_line[3]))
 		error("Information error on Sphere");
 	split_vec(&origin, split_line[1]);
 	diameter = ft_atof(split_line[3]);
