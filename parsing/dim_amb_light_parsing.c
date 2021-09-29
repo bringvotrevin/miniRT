@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/09/28 21:56:18 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/29 17:43:12 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ bool		validate_amb_light(double light_ratio, t_vector *rgb)
 	flag = true;
 	if (light_ratio < 0.0 || light_ratio > 1.0)
 		flag = false;
-	if (rgb->x < 0 || rgb->x > 255 || \
-	rgb->y < 0 || rgb->y > 255 || \
-	rgb->z < 0 || rgb->z > 255)
+	if (rgb->x < 0 || rgb->x > 255
+		|| rgb->y < 0 || rgb->y > 255
+		|| rgb->z < 0 || rgb->z > 255)
 		flag = false;
 	return (flag);
 }
@@ -33,7 +33,7 @@ t_vector	*save_amb_light(double light_ratio, t_vector *rgb)
 	aloc_rgb = (t_vector *)malloc(sizeof(t_vector));
 	if (aloc_rgb == NULL)
 		return (NULL);
-	*aloc_rgb = product_vec
+	*aloc_rgb = product_vec();
 	return (aloc_rgb);
 }
 

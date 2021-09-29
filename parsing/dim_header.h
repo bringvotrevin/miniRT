@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_header.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 17:44:17 by dim               #+#    #+#             */
-/*   Updated: 2021/09/17 03:53:12 by dim              ###   ########.fr       */
+/*   Updated: 2021/09/29 17:45:18 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,9 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include "dim_vector.h"
 # include "../libft/libft.h"
 # include "../libft/get_next_line.h"
-
-typedef struct	s_vector
-{
-	double		x;
-	double		y;
-	double		z;
-}				t_vector;
 
 typedef struct	s_control
 {

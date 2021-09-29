@@ -9,7 +9,9 @@
 		"dim_cam.h": "c",
 		"dim_amb_light.h": "c",
 		"dim_cylinder.h": "c",
-		"dim_sphere.h": "c"
+		"dim_sphere.h": "c",
+		"cmath": "c",
+		"complex": "c"
 	},
 	"editor.minimap.enabled": false
 }
