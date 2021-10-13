@@ -17,7 +17,8 @@
 		"get_next_line.h": "c",
 		"unistd.h": "c",
 		"dim_render.h": "c",
-		"dim_world.h": "c"
+		"dim_world.h": "c",
+		"libft.h": "c"
 	},
 	"editor.minimap.enabled": false
 }
