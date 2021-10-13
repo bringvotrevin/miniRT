@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:00:23 by dim               #+#    #+#             */
-/*   Updated: 2021/07/22 17:02:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:17:12 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "error.h"
+#include "dim_header.h"
 
 void	error(char *msg)
 {
@@ -18,5 +18,4 @@ void	error(char *msg)
 		printf("%s\n", msg);
 	else
 		printf("%s\n", strerror(errno));
-	
 }

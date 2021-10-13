@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_sphere.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:58:55 by dim               #+#    #+#             */
-/*   Updated: 2021/09/17 16:24:22 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:58:29 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 typedef struct	s_sphere
 {
-	t_vector	center;
-	t_vector	rgb;
-	double		radius;
-}				t_sphere;
+	t_vec	center;
+	t_vec	rgb;
+	double	radius;
+}	t_sphere;
 
 #endif

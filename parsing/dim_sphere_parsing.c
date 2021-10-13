@@ -6,14 +6,14 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/09/28 20:59:09 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:49:05 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_parse.h"
 #include "dim_sphere.h"
 
-bool	validate_sphere(t_vector rgb)
+bool	validate_sphere(t_vec rgb)
 {
 	bool	flag;
 
@@ -25,7 +25,7 @@ bool	validate_sphere(t_vector rgb)
 	return (flag);
 }
 
-t_sphere	*save_sphere(t_vector origin, double diameter, t_vector rgb1)
+t_sphere	*save_sphere(t_vec origin, double diameter, t_vec rgb1)
 {
 	t_sphere	*sphere;
 
@@ -40,9 +40,9 @@ t_sphere	*save_sphere(t_vector origin, double diameter, t_vector rgb1)
 
 void		sphere_parsing(t_render *render, char **split_line)
 {
-	t_vector	origin;
+	t_vec	origin;
 	double		diameter;
-	t_vector	rgb;
+	t_vec	rgb;
 
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Sphere");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_cylinder.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 18:57:55 by dim               #+#    #+#             */
-/*   Updated: 2021/09/17 19:04:30 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:46:48 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 
 typedef struct	s_circle
 {
-	t_vector	center;
-	t_vector	orient;
-	t_vector	color;
+	t_vec	center;
+	t_vec	orient;
+	t_vec	color;
 	double		radius;
 	double		offset;
 }				t_circle;
 
 typedef struct	s_cylinder
 {
-	t_vector	top;
-	t_vector	base;
-	t_vector	orient;
-	t_vector	rgb;
+	t_vec	top;
+	t_vec	base;
+	t_vec	orient;
+	t_vec	rgb;
 	double		radius;
 	double		height;
 	t_circle	*top_cap;

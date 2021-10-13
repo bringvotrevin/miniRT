@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_cam.h                                          :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/15 03:59:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:57:17 by dim              ###   ########.fr       */
+/*   Created: 2021/10/13 20:26:40 by dim               #+#    #+#             */
+/*   Updated: 2021/10/13 20:26:42 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIM_CAM_H
-# define DIM_CAM_H
-# include "dim_header.h"
+#include "header/minirt.h"
 
-typedef struct	s_cam
+void	create_mlx(t_trace *trace)
 {
-	t_vec		point;
-	t_vec		orient;
-	t_vec		matrix[3];
-	t_vec		x_axis;
-	t_vec		y_axis;
-	t_vec		z_axis;
-	double		fov;
-	double		pan;	
-	double		tilt;
-	double		viewport_width;
-	double		viewport_height;
-	double		viewport_ratio;
-}				t_cam;
-
-#endif
+	trace->mlx = mlx_init();
+	trace->mlx_win = mlx_new_window(trace->mlx, trace->width, trace->height, "MiniRT");
+	trace->img = mlx_new_image(trace->mlx, trace->width, trace->height);
+	trace->addr = mlx_get_data_addr(trace->img, &trace->bits_per_pixel,
+									&trace->line_length, &trace->endian);
+}

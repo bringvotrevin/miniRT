@@ -6,14 +6,14 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:23 by dim               #+#    #+#             */
-/*   Updated: 2021/09/28 20:58:36 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:48:50 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_parse.h"
 #include "dim_plane.h"
 
-bool	validate_plane(t_vector orient, t_vector rgb)
+bool	validate_plane(t_vec orient, t_vec rgb)
 {
 	bool	flag;
 
@@ -29,7 +29,7 @@ bool	validate_plane(t_vector orient, t_vector rgb)
 	return (flag);
 }
 
-t_plane		*save_plane(t_vector origin, t_vector orient, t_vector rgb1)
+t_plane		*save_plane(t_vec origin, t_vec orient, t_vec rgb1)
 {
 	t_plane		*plane;
 
@@ -43,9 +43,9 @@ t_plane		*save_plane(t_vector origin, t_vector orient, t_vector rgb1)
 
 void		plane_parsing(t_render *render, char **split_line)
 {
-	t_vector	origin;
-	t_vector	orient;
-	t_vector	rgb;
+	t_vec	origin;
+	t_vec	orient;
+	t_vec	rgb;
 
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Plane");

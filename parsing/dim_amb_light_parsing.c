@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/09/29 17:43:12 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:46:10 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_parse.h"
 
-bool		validate_amb_light(double light_ratio, t_vector *rgb)
+bool		validate_amb_light(double light_ratio, t_vec *rgb)
 {
 	bool	flag;
 
@@ -26,11 +26,11 @@ bool		validate_amb_light(double light_ratio, t_vector *rgb)
 	return (flag);
 }
 
-t_vector	*save_amb_light(double light_ratio, t_vector *rgb)
+t_vec	*save_amb_light(double light_ratio, t_vec *rgb)
 {
-	t_vector	*aloc_rgb;
+	t_vec	*aloc_rgb;
 	
-	aloc_rgb = (t_vector *)malloc(sizeof(t_vector));
+	aloc_rgb = (t_vec *)malloc(sizeof(t_vec));
 	if (aloc_rgb == NULL)
 		return (NULL);
 	*aloc_rgb = product_vec();
@@ -40,7 +40,7 @@ t_vector	*save_amb_light(double light_ratio, t_vector *rgb)
 void	amb_light_parsing(t_render *render, char **split_line)
 {
 	double		light_ratio;
-	t_vector	rgb;
+	t_vec	rgb;
 
 	if (count_split_line(split_line) != 3)
 		error("Information count error on Ambient lightning");

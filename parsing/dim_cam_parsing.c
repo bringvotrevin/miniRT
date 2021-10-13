@@ -6,14 +6,14 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/09/30 18:52:04 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:55:19 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_parse.h"
 #include "dim_cam.h"
 
-bool	validate_cam(t_vector unit_vec, double fov)
+bool	validate_cam(t_vec unit_vec, double fov)
 {
 	bool	flag;
 
@@ -27,23 +27,25 @@ bool	validate_cam(t_vector unit_vec, double fov)
 	return (flag);
 }
 
-t_camera	*save_cam(t_vector viewpoint, t_vector unit_vec, double fov1)
+t_cam	*save_cam(t_vec viewpoint, t_vec orient, double fov1)
 {
-	t_camera	*cam;
+	t_cam	*cam;
 
-	cam = (t_camera *)malloc(sizeof(t_camera));
+	cam = (t_cam *)malloc(sizeof(t_cam));
 	if (cam == NULL)
 		return (NULL);
-	cam->origin = viewpoint;
-	cam->fov = fov1; // 추가해야됨
+	cam->point = viewpoint;
+	cam->orient = unit_vec(orient);
+	cam->x_axis;
+	cam->fov = fov1;
 	return (cam);
 }
 
 void	cam_parsing(t_render *render, char **split_line)
 {
 	double		fov;
-	t_vector	viewpoint;
-	t_vector	unit_vec;
+	t_vec	viewpoint;
+	t_vec	orient;
 
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Camera");
@@ -52,13 +54,13 @@ void	cam_parsing(t_render *render, char **split_line)
 		|| !validate_float(split_line[3]))
 		error("Information error on Camera");
 	split_vec(&viewpoint, split_line[1]);
-	split_vec(&unit_vec, split_line[2]);
+	split_vec(&orient, split_line[2]);
 	fov = ft_atof(split_line[3]);
-	if (!validate_cam(unit_vec, fov))
+	if (!validate_cam(orient, fov))
 		error("Information range error on Camera");
 	if (render->world.camera != NULL)
 		error("duplicated element");
-	render->world.camera = save_cam(viewpoint, unit_vec, fov);
+	render->world.camera = save_cam(viewpoint, orient, fov);
 	if (render->world.camera == NULL)
 		error(NULL);
 	// printf("x : %f\ny : %f\nz : %f\n", \

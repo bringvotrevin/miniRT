@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:44:00 by dim               #+#    #+#             */
-/*   Updated: 2021/09/28 20:57:03 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 21:11:35 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ void	parsing(int argc, char *argv[], t_render *render)
 	close(parser.fd);
 }
 
-int		main(int argc, char	*argv[])
-{
-	t_render	render;
+// int		main(int argc, char	*argv[])
+// {
+// 	t_render	render;
 	
-	parsing(argc, argv, &render);
-	return (0);
-}
+// 	parsing(argc, argv, &render);
+// 	return (0);
+// }

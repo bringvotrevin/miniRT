@@ -6,14 +6,14 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/09/28 21:01:30 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:46:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_parse.h"
 #include "dim_cylinder.h"
 
-bool	validate_cylinder(t_vector orient, t_vector rgb)
+bool	validate_cylinder(t_vec orient, t_vec rgb)
 {
 	bool	flag;
 
@@ -29,8 +29,8 @@ bool	validate_cylinder(t_vector orient, t_vector rgb)
 	return (flag);
 }
 
-t_cylinder	*save_cylinder(t_vector origin, t_vector orient1,
-							double diameter, double height1, t_vector rgb1)
+t_cylinder	*save_cylinder(t_vec origin, t_vec orient1,
+							double diameter, double height1, t_vec rgb1)
 {
 	t_cylinder		*cylinder;
 
@@ -49,11 +49,11 @@ t_cylinder	*save_cylinder(t_vector origin, t_vector orient1,
 
 void		cylinder_parsing(t_render *render, char **split_line)
 {
-	t_vector	origin;
-	t_vector	orient;
+	t_vec	origin;
+	t_vec	orient;
 	double		diameter;
 	double		height;
-	t_vector	rgb;
+	t_vec	rgb;
 
 	if (count_split_line(split_line) != 6)
 		error("Information count error on Cylinder");

@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_cam.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/15 03:59:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:57:17 by dim              ###   ########.fr       */
+/*   Created: 2021/10/13 21:10:52 by dim               #+#    #+#             */
+/*   Updated: 2021/10/13 21:12:02 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIM_CAM_H
-# define DIM_CAM_H
-# include "dim_header.h"
+#include "header/minirt.h"
 
-typedef struct	s_cam
+int		validate(t_render *render)
 {
-	t_vec		point;
-	t_vec		orient;
-	t_vec		matrix[3];
-	t_vec		x_axis;
-	t_vec		y_axis;
-	t_vec		z_axis;
-	double		fov;
-	double		pan;	
-	double		tilt;
-	double		viewport_width;
-	double		viewport_height;
-	double		viewport_ratio;
-}				t_cam;
+	return (1);
+}
 
-#endif
+int		main(int argc, void **argv)
+{
+	t_render	render;
+
+	init_render(&render);
+	parse(argc, argv, &render);
+	// if (!validate(&render))
+	// 	write(1, "validate error\n", 15);
+	start_render(&render);
+	return (0);
+}

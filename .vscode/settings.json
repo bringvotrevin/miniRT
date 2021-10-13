@@ -11,7 +11,13 @@
 		"dim_cylinder.h": "c",
 		"dim_sphere.h": "c",
 		"cmath": "c",
-		"complex": "c"
+		"complex": "c",
+		"dim_header.h": "c",
+		"dim_vector.h": "c",
+		"get_next_line.h": "c",
+		"unistd.h": "c",
+		"dim_render.h": "c",
+		"dim_world.h": "c"
 	},
 	"editor.minimap.enabled": false
 }

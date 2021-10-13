@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/09/28 20:56:36 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:47:16 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dim_parse.h"
 
-bool		validate_light(double bright, t_vector rgb)
+bool		validate_light(double bright, t_vec rgb)
 {
 	bool	flag;
 
@@ -26,7 +26,7 @@ bool		validate_light(double bright, t_vector rgb)
 	return (flag);
 }
 
-t_light		*save_light(t_vector origin1, double bright, t_vector rgb)
+t_light		*save_light(t_vec origin1, double bright, t_vec rgb)
 {
 	t_light		*light;
 
@@ -41,8 +41,8 @@ t_light		*save_light(t_vector origin1, double bright, t_vector rgb)
 void		light_parsing(t_render *render, char **split_line)
 {
 	double		bright;
-	t_vector	origin;
-	t_vector	rgb;
+	t_vec	origin;
+	t_vec	rgb;
 
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Light");

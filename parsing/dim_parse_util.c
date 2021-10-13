@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_util_parser.c                                  :+:      :+:    :+:   */
+/*   dim_parse_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:44:23 by dim               #+#    #+#             */
-/*   Updated: 2021/08/06 05:58:45 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/13 20:50:23 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		error(char *msg)
 	exit(0);
 }
 
-void	split_vec(t_vector *rgb, char *line)
+void	split_vec(t_vec *rgb, char *line)
 {
 	char		**split_line;
 
