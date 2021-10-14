@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:21:33 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:53:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/struct.h"
+#include "dim_parse_util.h"
 
 bool	validate_cam(t_vec unit_vec, double fov)
 {
@@ -33,8 +33,8 @@ t_cam	*save_cam(t_vec viewpoint, t_vec orient, double fov1)
 	cam = (t_cam *)malloc(sizeof(t_cam));
 	if (cam == NULL)
 		return (NULL);
-	cam->point = viewpoint;
-	cam->orient = unit_vec(orient);
+	cam->origin = viewpoint;
+	// cam->orient = unit_vec(orient);
 	cam->fov = fov1;
 	return (cam);
 }

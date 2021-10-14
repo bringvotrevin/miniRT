@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 16:44:00 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:55:04 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse.h"
+#include "dim_parse_util.h"
 
 bool	validate_plane(t_vec orient, t_vec color)
 {

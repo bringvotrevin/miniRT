@@ -6,16 +6,18 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 16:07:22 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:57:56 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "struct.h"
 # include "define.h"
-# include "parsing/dim_parse.h"
+# include "struct.h"
+# include <fcntl.h> //open
+# include <unistd.h> //close
+# include <stdlib.h>
 
 //main.c
 // void		parse(t_render *render, int argc, char **argv);

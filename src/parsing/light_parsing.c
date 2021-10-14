@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 14:25:56 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:54:17 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse.h"
+#include "dim_parse_util.h"
 
 bool		validate_light(double bright, t_vec rgb)
 {

@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 14:21:53 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:53:31 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse.h"
+#include "dim_parse_util.h"
 
 bool		validate_amb_light(double light_ratio, t_vec *rgb)
 {

@@ -20,7 +20,8 @@
 		"dim_world.h": "c",
 		"libft.h": "c",
 		"minirt.h": "c",
-		"struct.h": "c"
+		"struct.h": "c",
+		"dim_parse_util.h": "c"
 	},
 	"editor.minimap.enabled": false
 }

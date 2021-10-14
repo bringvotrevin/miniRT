@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 16:46:51 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:55:15 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse.h"
+#include "dim_parse_util.h"
 
 bool	validate_sphere(t_vec color)
 {

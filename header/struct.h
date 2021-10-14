@@ -6,13 +6,12 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:12:45 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:45:52 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
-# include "../src/parsing/dim_world.h"
 
 //==========t_control==========
 typedef struct s_control
@@ -80,7 +79,7 @@ typedef struct s_light
 
 typedef struct s_cam
 {
-	t_vec		point;
+	t_vec		origin;
 	t_vec		orient;
 	t_vec		matrix[3];
 	t_vec		x_axis;

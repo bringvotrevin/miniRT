@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 16:49:41 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:53:44 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse.h"
+#include "dim_parse_util.h"
 
 bool	validate_cylinder(t_vec orient, t_vec color)
 {

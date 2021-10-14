@@ -6,13 +6,12 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:48:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 15:51:43 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:43:10 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIM_PARSE_H
 # define DIM_PARSE_H
-# include "../../header/struct.h"
 # include "dim_parse_util.h"
 
 typedef struct	s_parser
