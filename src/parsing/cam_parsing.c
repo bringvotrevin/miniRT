@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:13:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:21:33 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_cam	*save_cam(t_vec viewpoint, t_vec orient, double fov1)
 		return (NULL);
 	cam->point = viewpoint;
 	cam->orient = unit_vec(orient);
-	//cam->x_axis;
 	cam->fov = fov1;
 	return (cam);
 }
