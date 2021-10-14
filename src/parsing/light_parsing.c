@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_light_parsing.c                                :+:      :+:    :+:   */
+/*   light_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:47:16 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 14:25:56 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_light		*save_light(t_vec origin1, double bright, t_vec rgb)
 	light = (t_light *)malloc(sizeof(t_light));
 	if (light == NULL)
 		return (NULL);
+	(void)bright;
 	light->origin = origin1;
 	light->color = rgb; //추가해야됨
 	return (light);

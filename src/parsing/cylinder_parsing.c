@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_cylinder_parsing.c                             :+:      :+:    :+:   */
+/*   cylinder_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:46:39 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 14:24:56 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ t_cylinder	*save_cylinder(t_vec origin, t_vec orient1,
 	cylinder = (t_cylinder *)malloc(sizeof(t_cylinder));
 	if (cylinder == NULL)
 		return (NULL);
-	cylinder->top = ;
-	cylinder->base = ;
+	// cylinder->top = ;
+	// cylinder->base = ;
+	(void)origin;
 	cylinder->orient = orient1;
 	cylinder->rgb = rgb1;
 	cylinder->radius = (diameter / 2);
 	cylinder->height = height1;
-	cylinder->top_cap = ;
-	cylinder->bottom_cap = ;
+	// cylinder->top_cap = ;
+	// cylinder->bottom_cap = ;
+	return (cylinder);
 }
 
 void		cylinder_parsing(t_render *render, char **split_line)

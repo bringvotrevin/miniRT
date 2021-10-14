@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 17:44:17 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 03:50:45 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 14:16:56 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdlib.h>
 # include <errno.h>
 # include "../vector/dim_vector.h"
-# include "../../libft/libft.h"
-# include "../libft/get_next_line.h"
+# include "libft/libft.h"
+# include "libft/get_next_line.h"
 
 typedef struct	s_control
 {

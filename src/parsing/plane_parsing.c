@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_plane_parsing.c                                :+:      :+:    :+:   */
+/*   plane_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:48:50 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 14:26:16 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_plane		*save_plane(t_vec origin, t_vec orient, t_vec rgb1)
 	plane->center = origin;
 	plane->orient = orient; //수정필요
 	plane->rgb = rgb1; //수정필요
+	return (plane);
 }
 
 void		plane_parsing(t_render *render, char **split_line)

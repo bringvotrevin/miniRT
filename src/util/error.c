@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:00:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:17:12 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 14:27:13 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_header.h"
+#include "../parsing/dim_header.h"
 
 void	error(char *msg)
 {
