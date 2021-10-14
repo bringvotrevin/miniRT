@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:59:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 15:55:53 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 17:07:40 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 # define DIM_CAM_H
 # include "../vector/dim_vector.h"
 
-typedef struct	s_cam
-{
-	t_vec		point;
-	t_vec		orient;
-	t_vec		matrix[3];
-	t_vec		x_axis;
-	t_vec		y_axis;
-	t_vec		z_axis;
-	double		fov;
-	double		pan;	
-	double		tilt;
-	double		viewport_width;
-	double		viewport_height;
-	double		viewport_ratio;
-}				t_cam;
+// typedef struct	s_cam
+// {
+// 	t_vec		point;
+// 	t_vec		orient;
+// 	t_vec		matrix[3];
+// 	t_vec		x_axis;
+// 	t_vec		y_axis;
+// 	t_vec		z_axis;
+// 	double		fov;
+// 	double		pan;	
+// 	double		tilt;
+// 	double		viewport_width;
+// 	double		viewport_height;
+// 	double		viewport_ratio;
+// }				t_cam;
 
 #endif
