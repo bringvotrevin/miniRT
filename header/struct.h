@@ -6,34 +6,21 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 21:08:08 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 15:44:18 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
-# include "parsing/dim_parse.h"
+# include "../src/parsing/dim_world.h"
 
-//==========t_render==========
-// typedef struct  s_render
-// {
-// 	t_world             world;
-// 	t_trace             trace;
-// 	t_control           control;
-// } 				t_render;
-
-
-//==========t_world==========
-// typedef struct  s_world
-// {
-// 	t_object            *object;
-// 	t_light             *light;
-// 	t_cam               *cam;
-// 	t_vec               *ambient_light;
-// 	t_object_toolbox    plane_toolbox;
-// 	t_object_toolbox    sphere_toolbox;
-// 	t_object_toolbox    cylinder_toolbox;
-// }               t_world;
+//==========t_control==========
+typedef struct	s_control
+{
+//	t_key_mode			mode;
+	t_object			*select_object;
+	int					save;
+}				t_control;
 
 //==========t_trace==========
 typedef struct	s_trace
@@ -50,13 +37,26 @@ typedef struct	s_trace
 	double				ratio; //init.c
 }				t_trace;
 
-//==========t_control==========
-typedef struct	s_control
+//==========t_render==========
+typedef struct  s_render
 {
-//	t_key_mode			mode;
-	t_object			*select_object;
-	int					save;
-}				t_control;
+	t_world             world;
+	t_trace             trace;
+	t_control           control;
+} 				t_render;
+
+
+//==========t_world==========
+// typedef struct  s_world
+// {
+// 	t_object            *object;
+// 	t_light             *light;
+// 	t_cam               *cam;
+// 	t_vec               *ambient_light;
+// 	t_object_toolbox    plane_toolbox;
+// 	t_object_toolbox    sphere_toolbox;
+// 	t_object_toolbox    cylinder_toolbox;
+// }               t_world;
 
 /*
 typedef enum	e_key_mode

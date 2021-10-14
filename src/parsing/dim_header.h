@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_header.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 17:44:17 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 14:16:56 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 15:38:59 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 # include "libft/libft.h"
 # include "libft/get_next_line.h"
 
-typedef struct	s_control
-{
-	bool		save;
-}				t_control;
+// typedef struct	s_control
+// {
+// 	bool		save;
+// }				t_control;
 
-typedef struct	s_trace
-{
-	void		*mlx;
-}				t_trace;
+// typedef struct	s_trace
+// {
+// 	void		*mlx;
+// }				t_trace;
 
 typedef struct	s_ray
 {

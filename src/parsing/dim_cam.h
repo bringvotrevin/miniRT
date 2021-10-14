@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:59:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:57:17 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 15:25:21 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIM_CAM_H
 # define DIM_CAM_H
-# include "dim_header.h"
+# include "../vector/dim_vector.h"
 
 typedef struct	s_cam
 {
