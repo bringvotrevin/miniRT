@@ -46,7 +46,7 @@ SRCS = $(SRCS_PARSE)\
 	   $(SRCS_YOOJLEE)\
 	   main.c
 
-OBJS = $(SRCS:.C=.O)
+OBJS = $(SRCS:.c=.o)
 
 %.o :	%.c
 		$(CC) $(CFLAGS) $(INC) -c $< -o $@
