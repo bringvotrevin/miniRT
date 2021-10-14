@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:19:59 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:20:44 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 15:58:04 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //  팡팡코드
 
-#include "../header/minirt.h"
+#include "../../header/minirt.h"
 
 void	init_world(t_world *world)
 {

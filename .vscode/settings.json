@@ -18,7 +18,9 @@
 		"unistd.h": "c",
 		"dim_render.h": "c",
 		"dim_world.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"minirt.h": "c",
+		"struct.h": "c"
 	},
 	"editor.minimap.enabled": false
 }

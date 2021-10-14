@@ -6,13 +6,12 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:08:16 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 15:33:57 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 15:54:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIM_PARSE_UTIL_H
 # define DIM_PARSE_UTIL_H
-# include "../vector/dim_vector.h"
 # include "dim_header.h"
 
 int			check_input(int	argc, char	**argv);

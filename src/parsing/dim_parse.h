@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:48:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 15:40:18 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 15:51:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct	s_parser
 
 void	parsing(int argc, char *argv[], t_render *render);
 void	find_element(t_parser *parser);
-
 void	amb_light_parsing(t_render *render, char **split_line);
 void	light_parsing(t_render *render, char **split_line);
 void	cam_parsing(t_render *render, char **split_line);

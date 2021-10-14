@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 21:08:52 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 16:07:22 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_ray		make_ray(t_trace *trace, t_cam *cam, int x, int y);
 void		write_pixel(t_trace *trace, int x, int y, t_vec *color);
 
 //hit.c
+int		hit_plane(void *obj, t_ray *ray, t_hit *hit);
 
 //vector.c
 // t_vec		create_vec(double x, double y, double z);

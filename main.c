@@ -6,16 +6,16 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 21:10:52 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 21:12:02 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 15:51:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/minirt.h"
 
-int		validate(t_render *render)
-{
-	return (1);
-}
+// int		validate(t_render *render)
+// {
+// 	return (1);
+// }
 
 int		main(int argc, void **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 04:13:50 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 15:36:36 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 16:51:33 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,34 @@
 # define DIM_OBJECT_H
 # include "dim_header.h"
 
+typedef struct	s_plane
+{
+	t_vec	point;
+	t_vec	orient;
+	t_vec	color;
+	double	offset;
+}				t_plane;
+
+typedef struct	s_cylinder
+{
+	t_vec 	point;
+	t_vec	orient;
+	t_vec	color;
+	double	diameter;
+	double	height;
+}				t_cylinder;
+
+typedef struct	s_sphere
+{
+	t_vec	center;
+	t_vec	color;
+	double	diameter;
+}	t_sphere;
+
 typedef struct s_object_toolbox
 {
 	void				(*move)(void *, t_vec);
-	void				(*rotate)(void *,
-								t_vec (*rotate_orient)(t_vec,
-														double),
-								double);
-	void				(*hit)(void *,
-								t_ray *,
-								t_vec *);
+	void				(*hit)(void *, t_ray *, t_vec *);
 	void				(*clear)(void *);
 	// void				(*refresh)(void *);
 }	t_object_toolbox;
