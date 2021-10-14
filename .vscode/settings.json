@@ -21,7 +21,8 @@
 		"libft.h": "c",
 		"minirt.h": "c",
 		"struct.h": "c",
-		"dim_parse_util.h": "c"
+		"dim_parse_util.h": "c",
+		"error.h": "c"
 	},
 	"editor.minimap.enabled": false
 }

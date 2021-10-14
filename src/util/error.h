@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 17:00:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 18:16:07 by dim              ###   ########.fr       */
+/*   Created: 2021/10/14 18:07:43 by dim               #+#    #+#             */
+/*   Updated: 2021/10/14 18:16:06 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "error.h"
+#ifndef ERROR_H
+# define ERROR_H
+# include <errno.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
 
-void	ft_putstr(char *str)
-{
-	int	i;
+void	error(char *msg);
 
-	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
-}
-
-void	error(char *msg)
-{
-	if (msg != NULL)
-		ft_putstr(msg);
-	else
-		ft_putstr(strerror(errno));
-}
+#endif

@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 21:45:59 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:45:42 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 18:01:35 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse.h"
+#include "dim_vector.h"
 
 t_vec	create_vec(double x, double y, double z)
 {

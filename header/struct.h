@@ -6,76 +6,45 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:45:52 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/14 18:06:20 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-//==========t_control==========
-typedef struct s_control
+typedef struct s_vec
 {
-//	t_key_mode	mode;
-	t_object	*select_object;
-	int			save;
-}	t_control;
+	double	x;
+	double	y;
+	double	z;
+}	t_vec;
 
-//==========t_trace==========
-typedef struct s_trace
+//==========t_ray==========
+typedef struct s_ray
 {
-	void		*mlx; //init.c
-	void		*mlx_win; //init.c
-	void		*img; //init.c
-	char		*addr; //init.c
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-	double		width; //init.c
-	double		height; //init.c
-	double		ratio; //init.c
-}	t_trace;
+	t_vec	origin;
+	t_vec	dir;
+	double	time;	
+	t_vec	hit_point;
+	t_vec	hit_normal;
+	t_vec	color;
+}	t_ray;
 
-//==========t_render==========
-typedef struct  s_render
+typedef struct s_ray_woo
 {
-	t_world		world;
-	t_trace		trace;
-	t_control	control;
-}	t_render;
+	t_vec	origin;
+	t_vec	dir;
+	double	time;
+}	t_ray_woo;
 
-
-//==========t_world==========
-typedef struct  s_world
-{
-	t_object			*object;
-	t_light				*light;
-	t_cam				*cam;
-	t_vec				*ambient_light;
-	t_object_toolbox    plane_toolbox;
-	t_object_toolbox    sphere_toolbox;
-	t_object_toolbox    cylinder_toolbox;
-}	t_world;
-/*
-typedef enum	e_key_mode
-{
-	CAM_MODE,
-	OBJ_MODE,
-	LIGHT_MODE
-}				t_key_mode;
-*/
-
-
-
-
-//==============================================
+//==========t_element==========
 
 typedef struct s_light
 {
 	t_vec		origin;
 	t_vec		color;
 }	t_light;
-
 
 typedef struct s_cam
 {
@@ -93,6 +62,7 @@ typedef struct s_cam
 	double		viewport_ratio;
 }	t_cam;
 
+//==========t_object==========
 typedef struct s_object_toolbox
 {
 	void		(*move)(void *, t_vec);
@@ -122,29 +92,59 @@ typedef struct			s_obj_group
 }						t_obj_group;
 */
 
-typedef struct s_vec
+//==========t_control==========
+typedef struct s_control
 {
-	double	x;
-	double	y;
-	double	z;
-}	t_vec;
+//	t_key_mode	mode;
+	t_object	*select_object;
+	int			save;
+}	t_control;
 
-typedef struct s_ray
+//==========t_trace==========
+typedef struct s_trace
 {
-	t_vec	origin;
-	t_vec	dir;
-	double	time;	
-	t_vec	hit_point;
-	t_vec	hit_normal;
-	t_vec	color;
-}	t_ray;
+	void		*mlx; //init.c
+	void		*mlx_win; //init.c
+	void		*img; //init.c
+	char		*addr; //init.c
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	double		width; //init.c
+	double		height; //init.c
+	double		ratio; //init.c
+}	t_trace;
 
-typedef struct s_ray_woo
+//==========t_world==========
+typedef struct  s_world
 {
-	t_vec	origin;
-	t_vec	dir;
-	double	time;
-}	t_ray_woo;
+	t_object			*object;
+	t_light				*light;
+	t_cam				*cam;
+	t_vec				*ambient_light;
+	t_object_toolbox    plane_toolbox;
+	t_object_toolbox    sphere_toolbox;
+	t_object_toolbox    cylinder_toolbox;
+}	t_world;
+
+//==========t_render==========
+typedef struct  s_render
+{
+	t_world		world;
+	t_trace		trace;
+	t_control	control;
+}	t_render;
+
+/*
+typedef enum	e_key_mode
+{
+	CAM_MODE,
+	OBJ_MODE,
+	LIGHT_MODE
+}				t_key_mode;
+*/
+
+//==============================================
 
 typedef struct s_hit
 {
