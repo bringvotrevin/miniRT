@@ -22,7 +22,15 @@
 		"minirt.h": "c",
 		"struct.h": "c",
 		"dim_parse_util.h": "c",
-		"error.h": "c"
+		"error.h": "c",
+		"__config": "c",
+		"__errc": "c",
+		"__hash_table": "c",
+		"__locale": "c",
+		"__tuple": "c",
+		"bitset": "c",
+		"ios": "c",
+		"locale": "c"
 	},
 	"editor.minimap.enabled": false
 }

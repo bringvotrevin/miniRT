@@ -4,7 +4,7 @@ NAME = miniRT
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 LIBS = -L./lib/libft -lft\
 	   -L. -lmlx\
@@ -37,7 +37,8 @@ SRCS_YOOJLEE = $(addprefix ./src/yoojlee/, \
 			   pixel.c\
 			   ray.c\
 			   render.c\
-			   trace.c)
+			   trace.c \
+			   utils.c)
 
 SRCS = $(SRCS_PARSE)\
 	   $(SRCS_UTIL)\

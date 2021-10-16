@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/16 12:57:18 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/16 15:36:37 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
 	obj = world->object;
 	while (obj != NULL)
 	{
-		if (obj->toolbox->hit(obj->object, ray, hit))
+		//if (obj->toolbox->hit(obj->object, ray, hit))
+		if (hit_sphere(obj->object, ray, hit))
 		{
 			if (time < 0 || (ray->time > 1.0e-6 && ray->time < time))
 			{
@@ -41,13 +42,20 @@ int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
 	return (1);
 }
 
+/* void	trace_light(t_world *world, t_hit *hit)
+{
+
+} */
+
 void	start_trace(t_trace *trace, t_world *world)
 {
 	t_ray	ray;
 	t_hit	hit;
 	int		x;
 	int		y;
+	t_vec	color_test;
 
+	color_test = create_vec(255, 0, 0);
 	y = 0;
 	while (y < trace->height)
 	{
@@ -55,29 +63,13 @@ void	start_trace(t_trace *trace, t_world *world)
 		while (x < trace->width)
 		{
 			hit.color = create_vec(0, 0, 0);
-			ray = make_ray(trace, &world->cam, x, y); 
+			ray = make_ray(trace, world->cam, x, y); 
 			trace_world(world, &ray, &hit);
-			trace_light(world, &hit);
-			write_pixel(trace, x, y, &hit.color);
+			//trace_light(world, &hit);
+			write_pixel(trace, x, y, &color_test);
 			x++;
 		}
 		y++;
 	}
 	mlx_put_image_to_window(trace->mlx, trace->mlx_win, trace->img, 0, 0);
 }
-
-/*
-void	trace_world(t_world *world, t_ray *ray, t_vec *color)
-{
-	t_object	*obj;
-
-	obj = world->object;
-	while (obj != NULL)
-	{
-		obj->toolbox->hit(obj->object, ray, color);
-		obj = obj->next;
-	}
-	if (ray->time > NOISE_TIME)
-		trace_light(world, ray, color);
-}
-*/

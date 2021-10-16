@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:44:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:54:38 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 15:56:25 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void		free_split_line(char **split_line)
 	free(split_line);
 }
 
-void		error(char *msg)
+/* void		error(char *msg)
 {
 	printf("%s\n", msg);
 	exit(0);
-}
+} */
 
 void	split_vec(t_vec *rgb, char *line)
 {

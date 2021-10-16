@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_world.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:19:59 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 15:58:04 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 15:17:29 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,15 @@ void	init_world(t_world *world)
 	world->light = NULL;
 	world->cam = NULL;
 	world->ambient_light = NULL;
-	init_plane_toolbox(&world->plane_toolbox);
-	init_sphere_toolbox(&world->sphere_toolbox);
-	init_cylinder_toolbox(&world->cylinder_toolbox);
+//	init_plane_toolbox(&world->plane_toolbox);
+//	init_sphere_toolbox(&world->sphere_toolbox);
+//	init_cylinder_toolbox(&world->cylinder_toolbox);
 }
 
-void					init_plane_toolbox(t_object_toolbox *box)
+/* void					init_plane_toolbox(t_object_toolbox *box)
 {
-//	box->move = move_plane;
-//	box->rotate = rotate_plane;
-//	box->stretch = stretch_plane;
 	box->hit = hit_plane;
 	box->clear = clear_plane;
-//	box->refresh = refresh_plane;
-	box->stretch_mode = 0;
 }
 
 void					init_sphere_toolbox(t_object_toolbox *box)
@@ -57,3 +52,4 @@ void					init_cylinder_toolbox(t_object_toolbox *box)
 	box->refresh = refresh_cylinder;
 	box->stretch_mode = 0;
 }
+ */

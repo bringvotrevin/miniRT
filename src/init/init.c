@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:18:36 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:20:41 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 15:34:05 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			init_control(t_control *control)
 	control->save = 0;
 }
 
-/*
+
 void	init_cam_matrix(t_vec (*matrix)[3], double p, double t)
 //회전 변환 행렬
 //(월드좌표축->카메라좌표축과 같은 방향으로)
@@ -57,4 +57,3 @@ void	init_cam_matrix(t_vec (*matrix)[3], double p, double t)
 			-1 * cos(t),
 			sin(t));
 }
-*/
