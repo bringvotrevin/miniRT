@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pixel.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:59 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:25:08 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 12:57:25 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/minirt.h"
+#include "../../header/minirt.h"
 
 void	write_pixel(t_trace *trace, int x, int y, t_vec *color)
 {

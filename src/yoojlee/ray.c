@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:25 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:25:21 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 12:57:21 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/minirt.h"
+#include "../../header/minirt.h"
 
 t_ray	make_ray(t_trace *trace, t_cam *cam, int x, int y)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   trace.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:24:09 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 12:57:18 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/minirt.h"
+#include "../../header/minirt.h"
 
 int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
 {

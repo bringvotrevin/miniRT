@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:57:56 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 12:58:50 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "define.h"
 # include "struct.h"
+# include "../src/vector/dim_vector.h" //우선 여기에 추가함.
 # include <fcntl.h> //open
 # include <unistd.h> //close
 # include <stdlib.h>

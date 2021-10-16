@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   hit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:58 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 16:50:02 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 12:57:29 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/minirt.h"
+#include "../../header/minirt.h"
 
 int		hit_plane(void *obj, t_ray *ray, t_hit *hit)
 {

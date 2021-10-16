@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:40 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:26:42 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 12:59:16 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/minirt.h"
+#include "../../header/minirt.h"
 
 void	create_mlx(t_trace *trace)
 {
