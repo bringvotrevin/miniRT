@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:54:17 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/16 17:11:58 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void		light_parsing(t_render *render, char **split_line)
 		|| !validate_vec(split_line[3]))
 		error("Information error on Light");
 	split_vec(&origin, split_line[1]);
-	bright = ft_atof(split_line[3]);
-	split_vec(&rgb, split_line[2]);
+	bright = ft_atof(split_line[2]);
+	split_vec(&rgb, split_line[3]);
 	if (!validate_light(bright, rgb))
 		error("Information range error on Light");
 	if (render->world.light != NULL)
