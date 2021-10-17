@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 05:07:52 by dim               #+#    #+#             */
-/*   Updated: 2021/08/03 04:58:02 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/17 04:08:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ double		ft_atof(const char *str)
 	while (is_space(*str))
 		str++;
 	if (*str == '-' || *str == '+')
-		if (*str == '-')
-			sign *= -1;
+		if (*str++ == '-')
+			sign *= -1.0f;
 	while (ft_isdigit(*str))
 	{
 		num = 10 * num + (double)(*str - '0');
 		str++;
 	}
-	if (*str == '.')
-		str++;
+	if (*str != '.')
+		return (num * sign);
 	while (ft_isdigit(*str))
 	{
 		num = num + mantissa * (double)(*str - '0');

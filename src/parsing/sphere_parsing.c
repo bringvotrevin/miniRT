@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere_parsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/16 17:00:53 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/17 04:11:53 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,21 @@ t_sphere	*save_sphere(t_vec point, double diameter, t_vec color1)
 	return (sphere);
 }
 
+t_object	*add_object(t_object **head, void *parsed_obj,\
+						t_object_toolbox *parsed_toolbox)
+{
+	t_object	*new_object;
+
+	new_object = (t_object *)malloc(sizeof(t_object));
+	if (new_object == NULL || parsed_obj == NULL)
+		return (NULL);
+	new_object->object = parsed_obj;
+	new_object->toolbox = parsed_toolbox;
+	new_object->next = *head;
+	*head = new_object;
+	return (new_object);
+}
+
 void		sphere_parsing(t_render *render, char **split_line)
 {
 	t_vec	point;
@@ -52,12 +67,13 @@ void		sphere_parsing(t_render *render, char **split_line)
 		error("Information error on Sphere");
 	printf("split_line1:%s\n", split_line[1]);
 	split_vec(&point, split_line[1]);
-	diameter = ft_atof(split_line[3]);
-	split_vec(&color, split_line[2]);
+	diameter = ft_atof(split_line[2]);
+	split_vec(&color, split_line[3]);
 	if (!validate_sphere(color))
 		error("Information range error on Sphere");
-	render->world.object->object = save_sphere(point, diameter, color);
-	if (render->world.object->object == NULL)
-		error(NULL);
+	if (add_object(&render->world.object,\
+				save_sphere(point, diameter, color),\
+				&render->world.sphere_toolbox) == NULL)
+		error("Parsing Sphere error");
 }
 

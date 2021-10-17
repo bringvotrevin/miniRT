@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_parse_util.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:08:16 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 18:09:29 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/17 04:10:07 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ bool		validate_vec(char *line);
 int			validate_float(char *line);
 int			count_split_line(char **line);
 void		free_split_line(char **split_line);
+t_object	*add_object(t_object **head, void *parsed_obj,\
+						t_object_toolbox *parsed_toolbox);
 
 #endif
