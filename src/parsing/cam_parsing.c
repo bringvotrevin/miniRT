@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 18:10:20 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/17 17:39:40 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,42 @@ bool	validate_cam(t_vec unit_vec, double fov)
 	return (flag);
 }
 
+void	init_cam_matrix(t_vec (*matrix)[3], double p, double t)
+//회전 변환 행렬
+//(월드좌표축->카메라좌표축과 같은 방향으로)
+{
+	(*matrix)[0] = create_vec(
+			cos(p),
+			-1 * sin(p) * sin(t),
+			-1 * sin(p) * cos(t));
+	(*matrix)[1] = create_vec(
+			sin(p),
+			cos(p) * sin(t),
+			cos(p) * cos(t));
+	(*matrix)[2] = create_vec(
+			0,
+			-1 * cos(t),
+			sin(t));
+}
+
+void	init_cam_angle(double *p, double *t, t_vec dir)
+{
+	double	a;
+	double	b;
+	double	c;
+
+	a = dir.x;
+	b = dir.y;
+	c = dir.z;
+	*t = asin(c);
+	if (c <= 1 + 1.0e-6 && c >= 1 - 1.0e-6)
+		*p = 0;
+	else
+		*p = acos(b / cos(*t));
+	if (a > 0)
+		*p *= -1;
+}
+
 t_cam	*save_cam(t_vec viewpoint, t_vec orient, double fov1)
 {
 	t_cam	*cam;
@@ -36,6 +72,9 @@ t_cam	*save_cam(t_vec viewpoint, t_vec orient, double fov1)
 	cam->origin = viewpoint;
 	cam->orient = unit_vec(orient);
 	cam->fov = fov1;
+	cam->focal_len = 5;
+	init_cam_angle(&cam->pan, &cam->tilt, cam->orient);
+	init_cam_matrix(&cam->matrix, cam->pan, cam->tilt);
 	return (cam);
 }
 

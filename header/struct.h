@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 18:06:20 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/17 17:27:58 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_cam
 	t_vec		x_axis;
 	t_vec		y_axis;
 	t_vec		z_axis;
+	double		focal_len;
 	double		fov;
 	double		pan;	
 	double		tilt;

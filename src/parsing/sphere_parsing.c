@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere_parsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 04:11:53 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/17 17:17:30 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_sphere	*save_sphere(t_vec point, double diameter, t_vec color1)
 	if (sphere == NULL)
 		return (NULL);
 	sphere->center = point;
-	sphere->diameter = (diameter / 2);
+	sphere->diameter = (diameter);
 	sphere->color = color1;
 	return (sphere);
 }
@@ -58,19 +58,18 @@ void		sphere_parsing(t_render *render, char **split_line)
 	double		diameter;
 	t_vec	color;
 	
-	printf("here\n");
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Sphere");
 	if (!validate_vec(split_line[1])
 		|| !validate_float(split_line[2])
 		|| !validate_vec(split_line[3]))
 		error("Information error on Sphere");
-	printf("split_line1:%s\n", split_line[1]);
 	split_vec(&point, split_line[1]);
 	diameter = ft_atof(split_line[2]);
 	split_vec(&color, split_line[3]);
 	if (!validate_sphere(color))
 		error("Information range error on Sphere");
+	// printf("sp color in parsing : %f, %f, %f\n", sp->color.x, sp->color.y, sp->color.z);
 	if (add_object(&render->world.object,\
 				save_sphere(point, diameter, color),\
 				&render->world.sphere_toolbox) == NULL)
