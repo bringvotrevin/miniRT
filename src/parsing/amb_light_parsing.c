@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   amb_light_parsing.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 16:25:46 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 20:14:38 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_vec	*save_amb_light(double light_ratio, t_vec *rgb)
 	aloc_rgb = (t_vec *)malloc(sizeof(t_vec));
 	if (aloc_rgb == NULL)
 		return (NULL);
-	*aloc_rgb = product_vec(*rgb, light_ratio / 255); //????
+	*aloc_rgb = product_vec(*rgb, light_ratio / 255);
 	return (aloc_rgb);
 }
 

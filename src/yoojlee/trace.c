@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 17:23:27 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/18 21:59:42 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	start_trace(t_trace *trace, t_world *world)
 			if (trace_world(world, &ray, &hit))
 			{
 				write_pixel(trace, x, y, &color_test);
-				//trace_light(world, &hit);
+				trace_light(world, &hit);
 			}
 			else
 				write_pixel(trace, x, y, NULL);

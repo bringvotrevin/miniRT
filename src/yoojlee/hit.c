@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:58 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 17:22:38 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/18 21:53:16 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	hit_sphere(void *obj, t_ray *ray, t_hit *hit)
 	if (!solve_quadratic(a, b, c, ray))
 		return (0);
 	hit->color = sphere->color;
-	hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
+	hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time)); //P = O + t*D
 	hit->normal = unit_vec(minus_vec(hit->point, sphere->center));
 	if (dot_vec(hit->normal, ray->dir) > 0)
 		hit->normal = product_vec(hit->normal, -1);
