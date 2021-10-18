@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:53:31 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 16:25:46 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,4 @@ void	amb_light_parsing(t_render *render, char **split_line)
 	render->world.ambient_light = save_amb_light(light_ratio, &rgb);
 	if (render->world.ambient_light == NULL)
 		error(NULL);
-	printf("x : %f\ny : %f\nz : %f\n", \
-	render->world.ambient_light->x, \
-	render->world.ambient_light->y, render->world.ambient_light->z);
 }

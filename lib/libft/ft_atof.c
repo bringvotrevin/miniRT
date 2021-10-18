@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 05:07:52 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 04:08:43 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 16:35:08 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ double		ft_atof(const char *str)
 		num = 10 * num + (double)(*str - '0');
 		str++;
 	}
-	if (*str != '.')
+	if (*str++ != '.')
 		return (num * sign);
 	while (ft_isdigit(*str))
 	{
