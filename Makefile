@@ -57,6 +57,9 @@ $(NAME) :	$(OBJS)
 			make opengl
 			make libft
 			$(CC) $(LIBS) $(INC) $(CFLAGS) -framework OpenGL -framework AppKit -o $@ $^
+			mkdir objects
+			mv $^ ./objects
+
 
 mms :
 		make -C lib/minilibx_mms_20200219
@@ -73,7 +76,7 @@ clean :
 		make -C lib/minilibx_opengl_20191021 clean
 		make -C lib/libft clean
 		rm -rf libmlx.dylib
-		rm -rf $(OBJS)
+		rm -rf objects
 
 fclean : clean
 		 make -C lib/libft fclean
