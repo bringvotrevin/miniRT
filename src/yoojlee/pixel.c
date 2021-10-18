@@ -6,28 +6,23 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:59 by dim               #+#    #+#             */
-/*   Updated: 2021/10/16 12:57:25 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/18 17:22:21 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/minirt.h"
 
-void	write_pixel(t_trace *trace, int x, int y, t_vec *color)
+void	write_pixel(t_trace *mlx, int x, int y, t_vec *rgb)
 {
-	unsigned int	*pixel;
-	unsigned int	u_color;
+	char			*dst;
+	unsigned int	color;
 
-	pixel = (unsigned int *)(trace->addr + x *
-							(trace->bits_per_pixel / 8) +
-							y * trace->line_length);
-	*pixel = 0;
-	u_color = color->x * 255.99;
-	u_color = u_color > 255 ? 255 : u_color;
-	*pixel = 256 * *pixel + u_color;
-	u_color = color->y * 255.99;
-	u_color = u_color > 255 ? 255 : u_color;
-	*pixel = 256 * *pixel + u_color;
-	u_color = color->z * 255.99;
-	u_color = u_color > 255 ? 255 : u_color;
-	*pixel = 256 * *pixel + u_color;
+	dst = mlx->addr + (y * mlx->line_length + x * (mlx->bits_per_pixel / 8));
+	if (rgb == NULL)
+		color = 0x000000;
+	else
+		color = ((unsigned int)rgb->x) * pow(2, 16.0)
+			+ ((unsigned int)rgb->y) * pow(2, 8.0)
+			+ ((unsigned int)rgb->z);
+	*(unsigned int *)dst = color;
 }

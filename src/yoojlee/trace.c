@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trace.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 17:15:55 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 17:23:27 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	start_trace(t_trace *trace, t_world *world)
 	int		y;
 	t_vec	color_test;
 
-	color_test = create_vec(255, 0, 0);
+	color_test = create_vec(0, 50, 50);
 	y = 0;
 	while (y < trace->height)
 	{
@@ -64,9 +64,13 @@ void	start_trace(t_trace *trace, t_world *world)
 		{
 			hit.color = create_vec(0, 0, 0);
 			ray = make_ray(trace, world->cam, x, y); 
-			trace_world(world, &ray, &hit);
-			//trace_light(world, &hit);
-			write_pixel(trace, x, y, &color_test);
+			if (trace_world(world, &ray, &hit))
+			{
+				write_pixel(trace, x, y, &color_test);
+				//trace_light(world, &hit);
+			}
+			else
+				write_pixel(trace, x, y, NULL);
 			x++;
 		}
 		y++;

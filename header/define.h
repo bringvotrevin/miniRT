@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:28:56 by dim               #+#    #+#             */
-/*   Updated: 2021/10/13 20:28:58 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 16:40:42 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define DEFINE_H
 
 # define ESC_KEY 53
-# define FOCAL_LEN 1
+# define FOCAL_LEN 5
 # define PI 3.14159265
 
 #endif

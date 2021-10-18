@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:00:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 18:16:07 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 17:21:24 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	error(char *msg)
 		ft_putstr(msg);
 	else
 		ft_putstr(strerror(errno));
+	exit(0);
 }

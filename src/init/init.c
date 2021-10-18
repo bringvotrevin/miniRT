@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:18:36 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 17:35:26 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 16:40:56 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void			init_render(t_render *render)
 
 void	init_trace(t_trace *trace)
 {
-	trace->width = 1920;
-	trace->height = 1080;
+	trace->width = 500;
+	trace->height = 500;
 	trace->ratio = trace->width / (double)trace->height;
 	trace->mlx = NULL;
 	trace->mlx_win = NULL;

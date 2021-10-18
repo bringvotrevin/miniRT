@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_parse_util.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:08:16 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 04:10:07 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 16:40:39 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "../vector/dim_vector.h"
 # include "libft/libft.h"
 # include "libft/get_next_line.h"
+# include "../../header/define.h"
 # include "../../header/struct.h"
 
 int			check_input(int	argc, char	**argv);

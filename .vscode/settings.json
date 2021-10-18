@@ -30,7 +30,8 @@
 		"__tuple": "c",
 		"bitset": "c",
 		"ios": "c",
-		"locale": "c"
+		"locale": "c",
+		"define.h": "c"
 	},
 	"editor.minimap.enabled": false
 }

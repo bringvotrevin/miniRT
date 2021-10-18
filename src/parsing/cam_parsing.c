@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cam_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 16:37:01 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/18 16:40:15 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_cam	*save_cam(t_vec viewpoint, t_vec orient, double fov1)
 	cam->origin = viewpoint;
 	cam->orient = unit_vec(orient);
 	cam->fov = fov1;
-	cam->focal_len = 5;
+	cam->focal_len = FOCAL_LEN;
 	init_cam_angle(&cam->pan, &cam->tilt, cam->orient);
 	init_cam_matrix(&cam->matrix, cam->pan, cam->tilt);
 	return (cam);
