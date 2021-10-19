@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 15:27:09 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 15:39:08 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	start_trace(t_trace *trace, t_world *world)
 			hit.color = create_vec(0, 0, 0);
 			ray = make_ray(trace, world->cam, x, y); 
 			if (trace_world(world, &ray, &hit))
-			{
-				write_pixel(trace, x, y, &hit.color);
+			{				
 				trace_light(world, &hit);
+				write_pixel(trace, x, y, &hit.color);
 			}
 			else
 				write_pixel(trace, x, y, NULL);
