@@ -31,7 +31,10 @@
 		"bitset": "c",
 		"ios": "c",
 		"locale": "c",
-		"define.h": "c"
+		"define.h": "c",
+		"parse.h": "c",
+		"stdbool.h": "c",
+		"vector.h": "c"
 	},
 	"editor.minimap.enabled": false
 }

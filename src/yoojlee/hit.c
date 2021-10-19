@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:58 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 21:53:16 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 20:00:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,14 @@ int	hit_sphere(void *obj, t_ray *ray, t_hit *hit)
 		hit->normal = product_vec(hit->normal, -1);
 	hit->origin = ray->origin;
 	hit->dir = ray->dir;
+	return (1);
+}
+
+int	hit_plane(void *obj, t_ray *ray, t_hit *hit)
+{
+	return (1);
+}
+int	hit_cylinder(void *obj, t_ray *ray, t_hit *hit)
+{
 	return (1);
 }

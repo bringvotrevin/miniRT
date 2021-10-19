@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 13:33:06 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 19:56:38 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,47 +52,30 @@ typedef struct s_cam
 	t_vec		origin;
 	t_vec		orient;
 	t_vec		matrix[3];
-	t_vec		x_axis;
-	t_vec		y_axis;
-	t_vec		z_axis;
 	double		focal_len;
 	double		fov;
 	double		pan;	
 	double		tilt;
-	double		viewport_width;
-	double		viewport_height;
-	double		viewport_ratio;
 }	t_cam;
 
-//==========t_object==========
-typedef struct s_object_toolbox
+typedef struct s_hit
 {
-	void		(*move)(void *, t_vec);
-	void		(*hit)(void *, t_ray *, t_vec *);
-	void		(*clear)(void *);
-	// void		(*refresh)(void *);
-}	t_object_toolbox;
+	t_vec	normal;
+	t_vec	point;
+	t_vec	dir;
+	t_vec	origin;
+	t_vec	color;
+}	t_hit;
+
+//==========t_object==========
 
 typedef struct s_object
 {
 	void				*object;
-	t_object_toolbox	*toolbox;
-	// int					stretch_mode;
+	int					(*hit)(void *, t_ray *, t_hit *);
+	void				(*clear)(void *);
 	struct s_object		*next;
 }	t_object;
-
-/*
-typedef struct			s_obj_group
-{
-	void				*object;
-	int					(*hit)(void *, t_ray *, t_hit *);
-	void				(*translate)(void *, int);
-	void				(*rotate)(void *, int, double);
-	void				(*scale)(void *, int);
-	t_vec				angle;
-	struct s_obj_group	*next;
-}						t_obj_group;
-*/
 
 //==========t_control==========
 typedef struct s_control
@@ -124,9 +107,6 @@ typedef struct  s_world
 	t_light				*light;
 	t_cam				*cam;
 	t_vec				*ambient_light;
-	t_object_toolbox    plane_toolbox;
-	t_object_toolbox    sphere_toolbox;
-	t_object_toolbox    cylinder_toolbox;
 }	t_world;
 
 //==========t_render==========
@@ -137,36 +117,18 @@ typedef struct  s_render
 	t_control	control;
 }	t_render;
 
-/*
-typedef enum	e_key_mode
-{
-	CAM_MODE,
-	OBJ_MODE,
-	LIGHT_MODE
-}				t_key_mode;
-*/
-
 //==============================================
-
-typedef struct s_hit
-{
-	t_vec	normal;
-	t_vec	point;
-	t_vec	dir;
-	t_vec	origin;
-	t_vec	color;
-}	t_hit;
 
 typedef struct s_plane
 {
-	t_vec	point;
+	t_vec	origin;
 	t_vec	orient;
 	t_vec	color;
 }	t_plane;
 
 typedef struct s_cylinder
 {
-	t_vec 	point;
+	t_vec 	origin;
 	t_vec	orient;
 	t_vec	color;
 	double	diameter;

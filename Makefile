@@ -4,7 +4,7 @@ NAME = miniRT
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -g -fsanitize=address
 
 LIBS = -L./lib/libft -lft\
 	   -L. -lmlx\
@@ -29,7 +29,8 @@ SRCS_INIT = $(addprefix ./src/init/, \
 			init.c)
 
 SRCS_VECTOR = $(addprefix ./src/vector/, \
-			  dim_vector.c)
+			  vector.c\
+			  vector_utils.c)
 
 SRCS_YOOJLEE = $(addprefix ./src/yoojlee/, \
 			   hit.c\
@@ -39,6 +40,7 @@ SRCS_YOOJLEE = $(addprefix ./src/yoojlee/, \
 			   render.c\
 			   trace.c \
 			   light.c \
+			   clear.c \
 			   utils.c)
 
 SRCS = $(SRCS_PARSE)\
@@ -77,6 +79,7 @@ clean :
 		make -C lib/libft clean
 		rm -rf libmlx.dylib
 		rm -rf objects/*
+		rm -rf $(OBJS)
 
 fclean : clean
 		 make -C lib/libft fclean

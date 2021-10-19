@@ -6,11 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 17:17:30 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/19 20:07:25 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse_util.h"
+#include "parse.h"
 
 bool	validate_sphere(t_vec color)
 {
@@ -38,7 +38,8 @@ t_sphere	*save_sphere(t_vec point, double diameter, t_vec color1)
 }
 
 t_object	*add_object(t_object **head, void *parsed_obj,\
-						t_object_toolbox *parsed_toolbox)
+						int (*hit)(void *, t_ray *, t_hit *),\
+						void (*clear)(void *))
 {
 	t_object	*new_object;
 
@@ -46,7 +47,8 @@ t_object	*add_object(t_object **head, void *parsed_obj,\
 	if (new_object == NULL || parsed_obj == NULL)
 		return (NULL);
 	new_object->object = parsed_obj;
-	new_object->toolbox = parsed_toolbox;
+	new_object->hit = hit;
+	new_object->clear = clear;
 	new_object->next = *head;
 	*head = new_object;
 	return (new_object);
@@ -69,10 +71,9 @@ void		sphere_parsing(t_render *render, char **split_line)
 	split_vec(&color, split_line[3]);
 	if (!validate_sphere(color))
 		error("Information range error on Sphere");
-	// printf("sp color in parsing : %f, %f, %f\n", sp->color.x, sp->color.y, sp->color.z);
 	if (add_object(&render->world.object,\
 				save_sphere(point, diameter, color),\
-				&render->world.sphere_toolbox) == NULL)
+				hit_sphere, clear_sphere) == NULL)
 		error("Parsing Sphere error");
 }
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   light_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 13:33:21 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 20:07:07 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse_util.h"
+#include "parse.h"
 
 bool		validate_light(double bright, t_vec rgb)
 {

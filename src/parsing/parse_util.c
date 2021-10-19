@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:44:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 17:21:17 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 20:07:14 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse_util.h"
+#include "parse.h"
 
 void		free_split_line(char **split_line)
 {

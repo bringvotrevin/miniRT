@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cam_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 16:40:15 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 20:06:56 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse_util.h"
+#include "parse.h"
 
 bool	validate_cam(t_vec unit_vec, double fov)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trace.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 15:39:08 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 19:30:18 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
 	obj = world->object;
 	while (obj != NULL)
 	{
-		//if (obj->toolbox->hit(obj->object, ray, hit))
+		//if (obj->hit(obj->object, ray, hit))
 		if (hit_sphere(obj->object, ray, hit))
 		{
 			if (time < 0 || (ray->time > 1.0e-6 && ray->time < time))
@@ -41,11 +41,6 @@ int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
 	*hit = tmp_hit;
 	return (1);
 }
-
-/* void	trace_light(t_world *world, t_hit *hit)
-{
-
-} */
 
 void	start_trace(t_trace *trace, t_world *world)
 {

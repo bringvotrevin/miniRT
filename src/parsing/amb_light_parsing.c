@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   amb_light_parsing.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 20:14:38 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 20:06:22 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse_util.h"
+#include "parse.h"
 
 bool		validate_amb_light(double light_ratio, t_vec *rgb)
 {

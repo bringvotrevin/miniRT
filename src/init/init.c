@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:18:36 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 16:40:56 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 19:28:59 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	init_trace(t_trace *trace)
 
 void			init_control(t_control *control)
 {
-//	control->mode = CAM_MODE;
 	control->select_object = NULL;
 	control->save = 0;
 }

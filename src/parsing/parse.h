@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dim_parse.h                                        :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 03:48:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 17:43:10 by dim              ###   ########.fr       */
+/*   Created: 2021/09/17 16:08:16 by dim               #+#    #+#             */
+/*   Updated: 2021/10/19 20:13:54 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIM_PARSE_H
-# define DIM_PARSE_H
-# include "dim_parse_util.h"
+#ifndef PARSE_H
+# define PARSE_H
+# include <stdbool.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include "../util/error.h"
+# include "../vector/vector.h"
+# include "libft/libft.h"
+# include "libft/get_next_line.h"
+# include "../../header/minirt.h"
 
 typedef struct	s_parser
 {
@@ -22,6 +31,12 @@ typedef struct	s_parser
 	char		**split_line;
 }				t_parser;
 
+int			check_input(int	argc, char	**argv);
+void		split_vec(t_vec *rgb, char *line);
+bool		validate_vec(char *line);
+int			validate_float(char *line);
+int			count_split_line(char **line);
+void		free_split_line(char **split_line);
 void	parsing(int argc, char *argv[], t_render *render);
 void	find_element(t_parser *parser);
 void	amb_light_parsing(t_render *render, char **split_line);
@@ -30,5 +45,7 @@ void	cam_parsing(t_render *render, char **split_line);
 void	cylinder_parsing(t_render *render, char **split_line);
 void	plane_parsing(t_render *render, char **split_line);
 void	sphere_parsing(t_render *render, char **split_line);
+t_object	*add_object(t_object **head, void *parsed_obj,\
+						int (*hit)(void *, t_ray *, t_hit *), void (*clear)(void *));
 
 #endif

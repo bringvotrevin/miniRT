@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 04:09:39 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/19 20:07:02 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dim_parse_util.h"
+#include "parse.h"
 
 bool	validate_cylinder(t_vec orient, t_vec color)
 {
@@ -36,7 +36,7 @@ t_cylinder	*save_cylinder(t_vec point1, t_vec orient1,
 	cylinder = (t_cylinder *)malloc(sizeof(t_cylinder));
 	if (cylinder == NULL)
 		return (NULL);
-	cylinder->point = point1;
+	cylinder->origin = point1;
 	cylinder->orient = orient1;
 	cylinder->color = color1;
 	cylinder->diameter = (diameter1 / 2);
@@ -46,7 +46,7 @@ t_cylinder	*save_cylinder(t_vec point1, t_vec orient1,
 
 void		cylinder_parsing(t_render *render, char **split_line)
 {
-	t_vec	point;
+	t_vec	origin;
 	t_vec	orient;
 	double	diameter;
 	double	height;
@@ -60,7 +60,7 @@ void		cylinder_parsing(t_render *render, char **split_line)
 		|| !validate_float(split_line[4])
 		|| !validate_vec(split_line[5]))
 		error("Information error on Cylinder");
-	split_vec(&point, split_line[1]);
+	split_vec(&origin, split_line[1]);
 	split_vec(&orient, split_line[2]);
 	diameter = ft_atof(split_line[3]);
 	height = ft_atof(split_line[4]);
@@ -68,7 +68,7 @@ void		cylinder_parsing(t_render *render, char **split_line)
 	if (!validate_cylinder(orient, color))
 		error("Information range error on Cylinder");
 	if (add_object(&render->world.object,\
-				save_cylinder(point, orient, diameter, height, color),\
-				&render->world.cylinder_toolbox) == NULL)
+				save_cylinder(origin, orient, diameter, height, color),\
+				hit_cylinder, clear_cylinder) == NULL)
 		error("Parsing Cylinder error");
 }
