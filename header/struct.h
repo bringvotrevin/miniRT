@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/17 17:27:58 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/19 13:33:06 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_ray_woo
 typedef struct s_light
 {
 	t_vec		origin;
+	double		ratio;
 	t_vec		color;
 }	t_light;
 

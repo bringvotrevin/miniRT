@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/16 17:11:58 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 13:33:21 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ t_light		*save_light(t_vec origin1, double bright, t_vec rgb)
 	light = (t_light *)malloc(sizeof(t_light));
 	if (light == NULL)
 		return (NULL);
-	(void)bright;
 	light->origin = origin1;
-	light->color = rgb; //추가해야됨
+	light->ratio = bright;
+	light->color = rgb;
 	return (light);
 }
 
 void		light_parsing(t_render *render, char **split_line)
 {
 	double		bright;
-	t_vec	origin;
-	t_vec	rgb;
+	t_vec		origin;
+	t_vec		rgb;
 
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Light");

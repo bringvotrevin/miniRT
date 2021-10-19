@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/16 15:34:42 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 13:34:55 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,12 @@ int			solve_quadratic(double a, double b, double c, t_ray *ray);
 int			hit_sphere(void *obj, t_ray *ray, t_hit *hit);
 int			hit_plane(void *obj, t_ray *ray, t_hit *hit);
 
+//light.c
+void		trace_light(t_world *world, t_hit *hit);
+
 //utils.c
 void		swap_double(double *a, double *b);
+double		check_max(double a, double b);
 
 //vector.c
 // t_vec		create_vec(double x, double y, double z);

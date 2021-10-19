@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/18 21:59:42 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/19 15:27:09 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ void	start_trace(t_trace *trace, t_world *world)
 	t_hit	hit;
 	int		x;
 	int		y;
-	t_vec	color_test;
 
-	color_test = create_vec(0, 50, 50);
 	y = 0;
 	while (y < trace->height)
 	{
@@ -66,7 +64,7 @@ void	start_trace(t_trace *trace, t_world *world)
 			ray = make_ray(trace, world->cam, x, y); 
 			if (trace_world(world, &ray, &hit))
 			{
-				write_pixel(trace, x, y, &color_test);
+				write_pixel(trace, x, y, &hit.color);
 				trace_light(world, &hit);
 			}
 			else

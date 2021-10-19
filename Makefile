@@ -38,6 +38,7 @@ SRCS_YOOJLEE = $(addprefix ./src/yoojlee/, \
 			   ray.c\
 			   render.c\
 			   trace.c \
+			   light.c \
 			   utils.c)
 
 SRCS = $(SRCS_PARSE)\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dim_vector.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 21:45:59 by dim               #+#    #+#             */
-/*   Updated: 2021/10/14 18:01:35 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/19 13:15:38 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ t_vec	product_vec(t_vec v, double scalar)
 	return (v);
 }
 
+t_vec		product_vec2(t_vec v1, t_vec v2)
+{
+	t_vec	new;
+
+	new.x = v1.x * v2.x;
+	new.y = v1.y * v2.y;
+	new.z = v1.z * v2.z;
+	return (new);
+}
+
 double	dot_vec(t_vec v1, t_vec v2)
 {
 	double	ret;
@@ -79,9 +89,7 @@ t_vec	unit_vec(t_vec v)
 	return (v);
 }
 
-// 내가  추가
-
-t_vec	devide_vec(t_vec v, double scala)
+t_vec	divide_vec(t_vec v, double scala)
 {
 	v.x *= 1 / scala;
 	v.y *= 1 / scala;
