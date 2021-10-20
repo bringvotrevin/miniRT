@@ -12,6 +12,12 @@ LIBS = -L./lib/libft -lft\
 
 INC = -I./header -I./src -I./lib
 
+SRCDIR = ./src/parsing/\
+		 ./src/util/\
+		 ./src/init/\
+		 ./src/vector/\
+		 ./src/yoojlee/
+
 SRCS_PARSE = $(addprefix ./src/parsing/, \
 			 amb_light_parsing.c\
 			 cam_parsing.c\
@@ -50,18 +56,23 @@ SRCS = $(SRCS_PARSE)\
 	   $(SRCS_YOOJLEE)\
 	   main.c
 
-OBJS = $(SRCS:.c=.o)
+OBJDIR = objects
 
-%.o :	%.c
-		$(CC) $(CFLAGS) $(INC) -c $< -o $@
+vpath %.c $(SRCDIR)
+
+OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
 
 $(NAME) :	$(OBJS)
 			make mms
 			make opengl
 			make libft
 			$(CC) $(LIBS) $(INC) $(CFLAGS) -framework OpenGL -framework AppKit -o $@ $^
-			mv $^ ./objects
 
+$(OBJDIR) :
+			mkdir $(OBJDIR)
+
+$(OBJDIR)/%.o : %.c $(OBJDIR)
+				$(CC) $(CFLAG) $(INC) -c $< -o $@
 
 mms :
 		make -C lib/minilibx_mms_20200219
@@ -78,8 +89,7 @@ clean :
 		make -C lib/minilibx_opengl_20191021 clean
 		make -C lib/libft clean
 		rm -rf libmlx.dylib
-		rm -rf objects/*
-		rm -rf $(OBJS)
+		rm -rf $(OBJDIR)
 
 fclean : clean
 		 make -C lib/libft fclean

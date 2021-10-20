@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:44:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:07:14 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/20 20:20:30 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	split_vec(t_vec *rgb, char *line)
 	split_line = ft_split(line, ',');
 	if (!split_line)
 		error(NULL);
+	if (count_split_line(split_line) != 3)
+		error("Check Information : [x,y,z]");
 	rgb->x = ft_atof(split_line[0]);
 	rgb->y = ft_atof(split_line[1]);
 	rgb->z = ft_atof(split_line[2]);

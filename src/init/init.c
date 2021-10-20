@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:18:36 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 19:28:59 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/20 20:34:11 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void			init_render(t_render *render)
 
 void	init_trace(t_trace *trace)
 {
-	trace->width = 500;
-	trace->height = 500;
+	trace->width = 1920;
+	trace->height = 1080;
 	trace->ratio = trace->width / (double)trace->height;
 	trace->mlx = NULL;
 	trace->mlx_win = NULL;
