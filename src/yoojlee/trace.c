@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trace.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/20 20:19:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/20 20:48:53 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
 	time = -1.0f;
 	obj = world->object;
 	while (obj != NULL)
-	{		
-		//if (hit_sphere(obj->object, ray, hit))
+	{
 		if (obj->hit(obj->object, ray, hit))
 		{
 			if (time < 0 || (ray->time > 1.0e-6 && ray->time < time))

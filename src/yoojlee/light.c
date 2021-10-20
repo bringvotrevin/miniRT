@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 21:53:48 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/19 15:39:23 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/20 20:55:14 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	block_light(t_world *world, t_ray *shadow,
 	dist = sqrt(dot_vec(tmp, tmp));
 	while (obj_group)
 	{
-		if (hit_sphere(obj_group->object, shadow, dump))
+		if (obj_group->hit(obj_group->object, shadow, dump))
 			if (shadow->time > 1.0e-5 && shadow->time < dist)
 				if (shadow->time < dist)
 					return (1);

@@ -6,12 +6,11 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:58 by dim               #+#    #+#             */
-/*   Updated: 2021/10/20 17:39:56 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/20 20:56:22 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/minirt.h"
-#include <stdio.h>
 
 int	get_ray_time(double t0, double t1, t_ray *ray)
 {
@@ -117,16 +116,16 @@ int	hit_sphere(void *obj, t_ray *ray, t_hit *hit)
 int	intersect_plane(t_ray *ray, t_vec point, t_vec n)
 {
 	double	denom;
-	t_vec	p0l0;
+	t_vec	op;
 	double	t;
 
 	n = unit_vec(n);
 	denom = dot_vec(ray->dir, n);
 	if (denom > 1.0e-6 || denom < -1.0e-6)
 	{
-		p0l0 = minus_vec(point, ray->origin);
-		t = dot_vec(p0l0, n) / denom;
-		if (t >= 0)
+		op = minus_vec(point, ray->origin);
+		t = dot_vec(op, n) / denom;
+		if (t > 1.0e-6)
 		{
 			ray->time = t;
 			return (1);
