@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/20 20:48:53 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/21 17:57:48 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	start_trace(t_trace *trace, t_world *world)
 			{				
 				trace_light(world, &hit);
 				write_pixel(trace, x, y, &hit.color);
+			//	print_vec(hit.color, "hit.color");
 			}
 			else
 				write_pixel(trace, x, y, NULL);

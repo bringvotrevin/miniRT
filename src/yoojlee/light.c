@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 21:53:48 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/20 20:55:14 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/21 18:03:18 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ void		trace_light(t_world *world, t_hit *hit)
 	hit->color.x = check_max(hit->color.x, 255.0f);
 	hit->color.y = check_max(hit->color.y, 255.0f);
 	hit->color.z = check_max(hit->color.z, 255.0f);
+//	print_vec(hit->color, "hit color");
 }

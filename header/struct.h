@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 19:56:38 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/21 16:42:35 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,9 @@ typedef struct s_ray
 	t_vec	origin;
 	t_vec	dir;
 	double	time;	
-	t_vec	hit_point;
-	t_vec	hit_normal;
-	t_vec	color;
+	double	t0;
+	double	t1;
 }	t_ray;
-
-typedef struct s_ray_woo
-{
-	t_vec	origin;
-	t_vec	dir;
-	double	time;
-}	t_ray_woo;
 
 //==========t_element==========
 

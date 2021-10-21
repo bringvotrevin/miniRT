@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:13:43 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/21 17:48:32 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void		trace_light(t_world *world, t_hit *hit);
 //utils.c
 void		swap_double(double *a, double *b);
 double		check_max(double a, double b);
-
+void		print_vec(t_vec vec, char *str);
 #endif

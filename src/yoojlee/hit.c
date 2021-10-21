@@ -6,16 +6,19 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:58 by dim               #+#    #+#             */
-/*   Updated: 2021/10/20 20:56:22 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/21 18:03:17 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/minirt.h"
+#include <stdio.h>
 
 int	get_ray_time(double t0, double t1, t_ray *ray)
 {
 	if (t0 > t1)
 		swap_double(&t0, &t1);
+	ray->t0 = t0;
+	ray->t1 = t1;
 	if (t0 < 0.0f)
 	{
 		t0 = t1;
@@ -60,33 +63,6 @@ int		solve_quadratic(double a, double b, double c, t_ray *ray)
 	}
 	return (get_ray_time(t0, t1, ray));
 }
-
-// int		solve_quadratic(double a, double b, double c, t_ray *ray)
-// {
-// 	double	discr;
-// 	double	q;
-// 	double	time0;
-// 	double	time1;
-
-// 	discr = b * b - 4 * a * c;
-// 	if (discr < 0)
-// 		return (0);
-// 	loss_of_significance(&q, b, discr);
-// 	time1 = q / a;
-// 	time0 = c / q;
-// 	if (time0 > time1)
-// 		swap_double(&time0, &time1);
-// 	if (time0 > 0.0f)
-// 		ray->time = time0;
-// 	else if (time0 <= 0.0f && time1 > 0.0f)
-// 		ray->time = time1;
-// 	if (ray->time <= 0.0f)
-// 	{
-// 		ray->time = 0.0f;
-// 		return (0);
-// 	}
-// 	return (1);
-// }
 
 int	hit_sphere(void *obj, t_ray *ray, t_hit *hit)
 {
@@ -152,7 +128,64 @@ int	hit_plane(void *obj, t_ray *ray, t_hit *hit)
 	return (1);
 }
 
+void	init_coefficient(t_ray *ray, t_cylinder *cylinder, t_vec *coefficient)
+{
+	t_vec	co;
+	t_vec	n;
+
+	n = cylinder->orient;
+	co = minus_vec(ray->origin, cylinder->origin);
+	coefficient->x = dot_vec(ray->dir, ray->dir) - pow(dot_vec(ray->dir, n), 2.0);
+	coefficient->y = 2 * (dot_vec(ray->dir, co) - dot_vec(ray->dir, n) * dot_vec(co, n));
+	coefficient->z = dot_vec(co, co) - pow(dot_vec(co, n), 2.0) - pow(cylinder->diameter / 2, 2.0);
+}
+
+t_vec	get_normal_vec(t_ray *ray, t_cylinder *cylinder)
+{
+	t_vec	hit_point;
+	t_vec	cp;
+	t_vec	foot;
+	t_vec	normal;
+
+	hit_point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
+	cp = minus_vec(hit_point, cylinder->origin);
+	foot = product_vec(cylinder->orient, dot_vec(cp, cylinder->orient));
+	if (ray->time == ray->t0)
+		normal = unit_vec(minus_vec(cp, foot));
+	else
+		normal = unit_vec(product_vec(minus_vec(cp, foot), -1)); //?
+	return (normal);
+}
+
 int	hit_cylinder(void *obj, t_ray *ray, t_hit *hit)
 {
+	t_cylinder	*cylinder;
+	t_vec		coefficient;
+	t_vec		cp;
+
+	cylinder = obj;
+	init_coefficient(ray, cylinder, &coefficient);
+	if (!solve_quadratic(coefficient.x, coefficient.y, coefficient.z, ray))
+		return (0);
+	hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
+	cp = minus_vec(hit->point, cylinder->origin);
+	if (dot_vec(cp, cylinder->orient) < 0 \
+		|| dot_vec(cp, cylinder->orient) > cylinder->height)
+	{
+		hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->t1));
+		ray->time = ray->t1;
+		cp = minus_vec(hit->point, cylinder->origin);
+		if (dot_vec(cp, cylinder->orient) < 0 \
+			|| dot_vec(cp, cylinder->orient) > cylinder->height)
+		return (0);
+	}
+	hit->normal = unit_vec(get_normal_vec(ray, cylinder));
+	if (dot_vec(hit->normal, ray->dir) > 0)
+		hit->normal = product_vec(hit->normal, -1);
+	hit->color = cylinder->color;
+	
+	hit->origin = ray->origin;
+	hit->dir = ray->dir;
+//	print_vec(cylinder->color, "cylinder color");
 	return (1);
 }
