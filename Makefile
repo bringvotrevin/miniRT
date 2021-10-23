@@ -4,7 +4,7 @@ NAME = miniRT
 
 CC = gcc
 
-CFLAGS = -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 LIBS = -L./lib/libft -lft\
 	   -L. -lmlx\
@@ -39,7 +39,9 @@ SRCS_VECTOR = $(addprefix ./src/vector/, \
 			  vector_utils.c)
 
 SRCS_YOOJLEE = $(addprefix ./src/yoojlee/, \
-			   hit.c\
+			   hit_sphere.c\
+			   hit_plane.c\
+			   hit_cylinder.c\
 			   mlx.c\
 			   pixel.c\
 			   ray.c\

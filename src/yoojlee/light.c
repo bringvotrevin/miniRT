@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 21:53:48 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/21 18:03:18 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/22 20:14:47 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_vec	diffuse_light(t_light *light, t_ray *shadow, t_hit *hit)
 	double		angle;
 	t_vec		ratio;
 
+printf("DIFFUSE_LIGHT\n");
 	angle = dot_vec(unit_vec(shadow->dir), unit_vec(hit->normal));
 	if (angle < 0)
 		angle = 0;
@@ -32,6 +33,7 @@ t_vec	specular_light(t_light *light, t_hit *hit)
 	t_vec		reflect_vec;
 	t_vec		ratio;
 
+printf("SPECULAR_LIGHT\n");
 	l = minus_vec(light->origin, hit->point);
 	n = hit->normal;
 	n = product_vec(n, 2 * dot_vec(l, n));
@@ -47,6 +49,7 @@ t_vec	specular_light(t_light *light, t_hit *hit)
 
 static void	init_shadow_ray(t_light *light, t_ray *shadow, t_hit *hit)
 {
+	//printf("INIT SHADOW RAY\n");
 	shadow->origin = add_vec(hit->point, product_vec(hit->normal, 1.0e-6));
 	shadow->dir = unit_vec(minus_vec(light->origin, hit->point));
 	shadow->time = 0.0f;
@@ -58,6 +61,7 @@ static void	phong_shading(t_light *light, t_ray *shadow,
 	t_vec	diffuse;
 	t_vec	specular;
 
+printf("PHONG_SHADING\n");
 	diffuse = diffuse_light(light, shadow, hit);
 	*ratio = add_vec(*ratio, diffuse);
 	specular = specular_light(light, hit);
@@ -71,6 +75,7 @@ static int	block_light(t_world *world, t_ray *shadow,
 	double		dist;
 	t_object	*obj_group;
 
+	printf("BLOCK_LIGHT\n");
 	obj_group = world->object;
 	tmp = minus_vec(light->origin, shadow->origin);
 	dist = sqrt(dot_vec(tmp, tmp));
@@ -102,5 +107,4 @@ void		trace_light(t_world *world, t_hit *hit)
 	hit->color.x = check_max(hit->color.x, 255.0f);
 	hit->color.y = check_max(hit->color.y, 255.0f);
 	hit->color.z = check_max(hit->color.z, 255.0f);
-//	print_vec(hit->color, "hit color");
 }

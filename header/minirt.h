@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/21 17:48:32 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/22 18:59:27 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <unistd.h> //close
 # include <stdlib.h>
 # include <math.h>
+
+
+# include <stdio.h>
 
 
 //init.c
@@ -52,12 +55,14 @@ void		apply_matrix(t_vec *matrix, t_vec *point);
 //pixel.c
 void		write_pixel(t_trace *trace, int x, int y, t_vec *color);
 
-//hit.c
-int			get_ray_time(double t0, double t1, t_ray *ray);
-void		loss_of_significance(double *q, double b, double discr);
+//hit_sphere.c
 int			solve_quadratic(double a, double b, double c, t_ray *ray);
 int			hit_sphere(void *obj, t_ray *ray, t_hit *hit);
+
+//hit_plane.c
 int			hit_plane(void *obj, t_ray *ray, t_hit *hit);
+
+//hit_cylinder.c
 int			hit_cylinder(void *obj, t_ray *ray, t_hit *hit);
 
 //clear.c
