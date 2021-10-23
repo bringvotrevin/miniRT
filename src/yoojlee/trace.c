@@ -6,12 +6,11 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/23 10:29:06 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/23 13:54:34 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/minirt.h"
-#include <stdio.h>
 
 int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
 {
@@ -55,11 +54,11 @@ void	start_trace(t_trace *trace, t_world *world)
 		x = 0;
 		while (x < trace->width)
 		{
-			hit.color = create_vec(0, 0, 0);
+			hit.color = create_vec(0, 0, 0); //초기화 해줬음
 			ray = make_ray(trace, world->cam, x, y); 
 			if (trace_world(world, &ray, &hit))
-			{				
-				trace_light(world, &hit);
+			{
+			//	trace_light(world, &hit);
 				write_pixel(trace, x, y, &hit.color);
 			//	print_vec(hit.color, "hit.color");
 			}
