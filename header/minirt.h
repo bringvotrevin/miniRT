@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 17:55:47 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 20:18:58 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "define.h"
 # include "struct.h"
-# include "../src/vector/vector.h" //우선 여기에 추가함.
+# include "../src/vector/vector.h"
 # include <mlx.h>
 # include <fcntl.h> //open
 # include <unistd.h> //close
@@ -24,7 +24,7 @@
 
 //init.c
 void		init_render(t_render *render);
-static void	init_shadow_ray(t_light *light, t_ray *shadow, t_hit *hit);
+void		init_shadow_ray(t_light *light, t_ray *shadow, t_hit *hit);
 
 //render.c
 int			end_render(t_render *render);
@@ -53,11 +53,6 @@ int			hit_plane(void *obj, t_ray *ray, t_hit *hit);
 
 //hit_cylinder.c
 int			hit_cylinder(void *obj, t_ray *ray, t_hit *hit);
-
-//clear.c
-void		clear_sphere(void *obj);
-void		clear_plane(void *obj);
-void		clear_cylinder(void *obj);
 
 //light.c
 void		trace_light(t_world *world, t_hit *hit);

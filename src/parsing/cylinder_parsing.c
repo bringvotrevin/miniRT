@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 16:24:10 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 20:14:06 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void		cylinder_parsing(t_render *render, char **split_line)
 		error("Information range error on Cylinder");
 	if (add_object(&render->world.object,\
 				save_cylinder(origin, orient, diameter, height, color),\
-				hit_cylinder, clear_cylinder) == NULL)
+				hit_cylinder) == NULL)
 		error("Parsing Cylinder error");
 }

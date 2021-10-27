@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:07:25 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/27 20:15:19 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ t_sphere	*save_sphere(t_vec point, double diameter, t_vec color1)
 }
 
 t_object	*add_object(t_object **head, void *parsed_obj,\
-						int (*hit)(void *, t_ray *, t_hit *),\
-						void (*clear)(void *))
+						int (*hit)(void *, t_ray *, t_hit *))
 {
 	t_object	*new_object;
 
@@ -48,7 +47,6 @@ t_object	*add_object(t_object **head, void *parsed_obj,\
 		return (NULL);
 	new_object->object = parsed_obj;
 	new_object->hit = hit;
-	new_object->clear = clear;
 	new_object->next = *head;
 	*head = new_object;
 	return (new_object);
@@ -73,7 +71,7 @@ void		sphere_parsing(t_render *render, char **split_line)
 		error("Information range error on Sphere");
 	if (add_object(&render->world.object,\
 				save_sphere(point, diameter, color),\
-				hit_sphere, clear_sphere) == NULL)
+				hit_sphere) == NULL)
 		error("Parsing Sphere error");
 }
 

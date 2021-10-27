@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plane_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 16:26:44 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 20:14:47 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		plane_parsing(t_render *render, char **split_line)
 		error("Information range error on Plane");
 	if (add_object(&render->world.object,\
 			save_plane(origin, orient, color),\
-			hit_plane, clear_plane) == NULL)
+			hit_plane) == NULL)
 		error("Parsing Plane error");
 }
 

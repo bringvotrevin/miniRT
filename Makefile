@@ -4,7 +4,7 @@ NAME = miniRT
 
 CC = gcc
 
-CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra # -fsanitize=address
 
 LIBS = -L./lib/libft -lft\
 	   -L. -lmlx\
@@ -14,9 +14,10 @@ INC = -I./header -I./src -I./lib
 
 SRCDIR = ./src/parsing/\
 		 ./src/util/\
-		 ./src/init/\
 		 ./src/vector/\
-		 ./src/yoojlee/
+		 ./src/hit/\
+		 ./src
+		 
 
 SRCS_PARSE = $(addprefix ./src/parsing/, \
 			 amb_light_parsing.c\
@@ -30,33 +31,33 @@ SRCS_PARSE = $(addprefix ./src/parsing/, \
 
 SRCS_UTIL = ./src/util/error.c
 
-SRCS_INIT = $(addprefix ./src/init/, \
-			init_world.c\
-			init.c)
-
 SRCS_VECTOR = $(addprefix ./src/vector/, \
 			  vector.c\
 			  vector_utils.c)
 
-SRCS_YOOJLEE = $(addprefix ./src/yoojlee/, \
+SRCS_HIT = $(addprefix ./src/hit/, \
 			   hit_sphere.c\
 			   hit_plane.c\
 			   hit_cylinder.c\
+			   )
+
+SRCS_OTHER = $(addprefix ./src/, \
 			   mlx.c\
 			   pixel.c\
 			   ray.c\
 			   render.c\
 			   trace.c \
 			   light.c \
-			   clear.c \
-			   utils.c)
+			   utils.c \
+			   init.c \
+			   )
 
 SRCS = $(SRCS_PARSE)\
 	   $(SRCS_UTIL)\
-	   $(SRCS_INIT)\
 	   $(SRCS_VECTOR)\
-	   $(SRCS_YOOJLEE)\
-	   main.c
+	   $(SRCS_HIT)\
+	   $(SRCS_OTHER)\
+	   ./main.c
 
 OBJDIR = objects
 

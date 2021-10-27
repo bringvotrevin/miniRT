@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:08:16 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:13:54 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/27 20:15:48 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	cylinder_parsing(t_render *render, char **split_line);
 void	plane_parsing(t_render *render, char **split_line);
 void	sphere_parsing(t_render *render, char **split_line);
 t_object	*add_object(t_object **head, void *parsed_obj,\
-						int (*hit)(void *, t_ray *, t_hit *), void (*clear)(void *));
+						int (*hit)(void *, t_ray *, t_hit *));
 
 #endif

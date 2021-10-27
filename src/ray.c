@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:25 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 18:00:18 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 20:20:38 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/minirt.h"
+
+double		deg_to_rad(double angle)
+{
+	return (angle * PI / 180);
+}
+
+void		apply_matrix(t_vec *matrix, t_vec *point)
+{
+	t_vec	new;
+
+	new.x = dot_vec(matrix[0], *point);
+	new.y = dot_vec(matrix[1], *point);
+	new.z = dot_vec(matrix[2], *point);
+	*point = new;
+}
 
 t_ray	make_ray(t_trace *trace, t_cam *cam, int x, int y)
 {
@@ -28,19 +43,4 @@ t_ray	make_ray(t_trace *trace, t_cam *cam, int x, int y)
 	ray.t0 = 0.0f;
 	ray.t1 = 0.0f;
 	return (ray);
-}
-
-double		deg_to_rad(double angle)
-{
-	return (angle * PI / 180);
-}
-
-void		apply_matrix(t_vec *matrix, t_vec *point)
-{
-	t_vec	new;
-
-	new.x = dot_vec(matrix[0], *point);
-	new.y = dot_vec(matrix[1], *point);
-	new.z = dot_vec(matrix[2], *point);
-	*point = new;
 }
