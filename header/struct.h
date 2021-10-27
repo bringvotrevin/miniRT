@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/21 16:42:35 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 18:12:10 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,27 +69,19 @@ typedef struct s_object
 	struct s_object		*next;
 }	t_object;
 
-//==========t_control==========
-typedef struct s_control
-{
-//	t_key_mode	mode;
-	t_object	*select_object;
-	int			save;
-}	t_control;
-
 //==========t_trace==========
 typedef struct s_trace
 {
-	void		*mlx; //init.c
-	void		*mlx_win; //init.c
-	void		*img; //init.c
-	char		*addr; //init.c
+	void		*mlx;
+	void		*mlx_win;
+	void		*img;
+	char		*addr;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-	double		width; //init.c
-	double		height; //init.c
-	double		ratio; //init.c
+	double		width;
+	double		height;
+	double		ratio;
 }	t_trace;
 
 //==========t_world==========
@@ -106,10 +98,9 @@ typedef struct  s_render
 {
 	t_world		world;
 	t_trace		trace;
-	t_control	control;
 }	t_render;
 
-//==============================================
+//==========objects===========
 
 typedef struct s_plane
 {
