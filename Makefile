@@ -4,7 +4,7 @@ NAME = miniRT
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -g -Wall -Werror -Wextra
 
 LIBS = -L./lib/libft -lft\
 	   -L. -lmlx\
@@ -74,7 +74,7 @@ $(OBJDIR) :
 			mkdir $(OBJDIR)
 
 $(OBJDIR)/%.o : %.c $(OBJDIR)
-				$(CC) $(CFLAG) $(INC) -c $< -o $@
+				$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 mms :
 		make -C lib/minilibx_mms_20200219

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plane_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:07:21 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/27 16:26:44 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_plane		*save_plane(t_vec origin1, t_vec orient1, t_vec color1)
 	if (plane == NULL)
 		return (NULL);
 	plane->origin = origin1;
-	plane->orient = orient1;
+	plane->orient = unit_vec(orient1);
 	plane->color = color1;
 	return (plane);
 }

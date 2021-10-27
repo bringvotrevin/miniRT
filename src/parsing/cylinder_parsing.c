@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:07:02 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/27 16:24:10 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ t_cylinder	*save_cylinder(t_vec point1, t_vec orient1,
 	if (cylinder == NULL)
 		return (NULL);
 	cylinder->origin = point1;
-	cylinder->orient = orient1;
+	cylinder->orient = unit_vec(orient1);
 	cylinder->color = color1;
-	cylinder->diameter = (diameter1 / 2);
+	cylinder->diameter = diameter1;
 	cylinder->height = height1;
 	return (cylinder);
 }

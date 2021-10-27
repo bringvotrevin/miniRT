@@ -6,11 +6,11 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:32 by dim               #+#    #+#             */
-/*   Updated: 2021/10/16 15:24:00 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 18:00:25 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/minirt.h"
+#include "../header/minirt.h"
 
 int	end_render(t_render *render)
 {

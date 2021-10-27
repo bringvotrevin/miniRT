@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   pixel.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 14:27:26 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/21 17:48:28 by yoojlee          ###   ########.fr       */
+/*   Created: 2021/10/13 20:24:59 by dim               #+#    #+#             */
+/*   Updated: 2021/10/27 18:00:15 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/minirt.h"
-#include <stdio.h>
+#include "../header/minirt.h"
 
-void	swap_double(double *a, double *b)
+void	write_pixel(t_trace *mlx, int x, int y, t_vec *rgb)
 {
-	double	tmp;
+	char			*dst;
+	unsigned int	color;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-double	check_max(double a, double b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-
-void	print_vec(t_vec vec, char *str)
-{
-	printf("%s : (%lf, %lf, %lf)\n", str, vec.x, vec.y, vec.z);
+	dst = mlx->addr + (y * mlx->line_length + x * (mlx->bits_per_pixel / 8));
+	if (rgb == NULL)
+		color = 0x000000;
+	else
+		color = ((unsigned int)rgb->x) * pow(2, 16.0)
+			+ ((unsigned int)rgb->y) * pow(2, 8.0)
+			+ ((unsigned int)rgb->z);
+	*(unsigned int *)dst = color;
 }

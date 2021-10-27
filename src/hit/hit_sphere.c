@@ -6,7 +6,7 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:58 by dim               #+#    #+#             */
-/*   Updated: 2021/10/23 13:02:04 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 17:58:33 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,12 @@ int	get_ray_time(double t0, double t1, t_ray *ray)
 		swap_double(&t0, &t1);
 	ray->t0 = t0;
 	ray->t1 = t1;
-	if (t1 < 0.0f) // hit되는 곳 없음
+	if (t1 < 0.0f)
 		return (0);
-	if (t0 < 0.0f) // t1만 hit
+	if (t0 < 0.0f)
 		ray->time = t1;
 	else
 		ray->time = t0;
-	// if (t0 < 0.0f)
-	// {
-	// 	t0 = t1;
-	// 	if (t0 < 0.0f)
-	// 	{
-	// 		ray->time = 0.0f;
-	// 		return (0);
-	// 	}
-	// 	ray->t0 = t1;
-	// }
-	// ray->time = t0;
-	// printf("GETRAYTIME | ray->t0:%f, ray->t1:%f\n", ray->t0, ray->t1);
 	return (1);
 }
 
@@ -68,7 +56,6 @@ int		solve_quadratic(double a, double b, double c, t_ray *ray)
 		t0 = q / a;
 		t1 = c / q;
 	}
-	// printf("SOLVE | t0:%f, t1:%f\n", t0, t1);
 	return (get_ray_time(t0, t1, ray));
 }
 
@@ -88,7 +75,7 @@ int	hit_sphere(void *obj, t_ray *ray, t_hit *hit)
 	if (!solve_quadratic(a, b, c, ray))
 		return (0);
 	hit->color = sphere->color;
-	hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time)); //P = O + t*D
+	hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
 	hit->normal = unit_vec(minus_vec(hit->point, sphere->center));
 	if (dot_vec(hit->normal, ray->dir) > 0)
 		hit->normal = product_vec(hit->normal, -1);
@@ -96,38 +83,3 @@ int	hit_sphere(void *obj, t_ray *ray, t_hit *hit)
 	hit->dir = ray->dir;
 	return (1);
 }
-
-// int		solve_quadratic(double a, double b, double c, t_ray *ray)
-// {
-// 	double	discr;
-// 	double	q;
-// 	double	time0;
-// 	double	time1;
-
-// 	discr = b * b - 4 * a * c;
-// 	if (discr < 0)
-// 		return (0);
-// 	loss_of_significance(&q, b, discr);
-// 	time1 = q / a;
-// 	time0 = c / q;
-// 	if (time0 > time1)
-// 		swap_double(&time0, &time1);
-// 	if (time0 > 0.0f)
-// 	{
-// 		ray->time = time0;
-// 		ray->t0 = time0;
-// 		ray->t1 = time1;
-// 	}
-// 	else if (time0 <= 0.0f && time1 > 0.0f)
-// 	{
-// 		ray->time = time1;
-// 		ray->t0 = time0;
-// 		ray->t1 = time1;
-// 	}
-// 	if (ray->time <= 0.0f)
-// 	{
-// 		ray->time = 0.0f;
-// 		return (0);
-// 	}
-// 	return (1);
-// }

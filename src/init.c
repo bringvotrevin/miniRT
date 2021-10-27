@@ -6,19 +6,18 @@
 /*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:18:36 by dim               #+#    #+#             */
-/*   Updated: 2021/10/23 11:21:13 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/27 17:59:11 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// 팡팡코드
-
 #include "../header/minirt.h"
 
-void			init_render(t_render *render)
+void	init_world(t_world *world)
 {
-	init_world(&render->world);
-	init_trace(&render->trace);
-	init_control(&render->control);
+	world->object = NULL;
+	world->light = NULL;
+	world->cam = NULL;
+	world->ambient_light = NULL;
 }
 
 void	init_trace(t_trace *trace)
@@ -32,27 +31,15 @@ void	init_trace(t_trace *trace)
 	trace->addr = NULL;
 }
 
-void			init_control(t_control *control)
+void			init_render(t_render *render)
 {
-	control->select_object = NULL;
-	control->save = 0;
+	init_world(&render->world);
+	init_trace(&render->trace);
 }
 
-
-// void	init_cam_matrix(t_vec (*matrix)[3], double p, double t)
-// //회전 변환 행렬
-// //(월드좌표축->카메라좌표축과 같은 방향으로)
-// {
-// 	(*matrix)[0] = create_vec(
-// 			cos(p),
-// 			-1 * sin(p) * sin(t),
-// 			-1 * sin(p) * cos(t));
-// 	(*matrix)[1] = create_vec(
-// 			sin(p),
-// 			cos(p) * sin(t),
-// 			cos(p) * cos(t));
-// 	(*matrix)[2] = create_vec(
-// 			0,
-// 			-1 * cos(t),
-// 			sin(t));
-// }
+static void	init_shadow_ray(t_light *light, t_ray *shadow, t_hit *hit)
+{
+	shadow->origin = add_vec(hit->point, product_vec(hit->normal, 1.0e-6));
+	shadow->dir = unit_vec(minus_vec(light->origin, hit->point));
+	shadow->time = 0.0f;
+}
