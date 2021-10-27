@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:08:16 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:15:48 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 02:27:50 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ typedef struct	s_parser
 	char		**split_line;
 }				t_parser;
 
-int			check_input(int	argc, char	**argv);
-void		split_vec(t_vec *rgb, char *line);
-bool		validate_vec(char *line);
-int			validate_float(char *line);
-int			count_split_line(char **line);
-void		free_split_line(char **split_line);
+int		check_input(int	argc, char	**argv);
+void	split_vec(t_vec *xyz, char *line);
+bool	validate_vec(char *line);
+int		validate_float(char *line);
+int		count_split_line(char **line);
+void	free_split_line(char **split_line);
 void	parsing(int argc, char *argv[], t_render *render);
 void	find_element(t_parser *parser);
 void	amb_light_parsing(t_render *render, char **split_line);

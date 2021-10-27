@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:44:00 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:07:28 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 04:05:19 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	parsing(int argc, char *argv[], t_render *render)
 
 	parser.render = render;
 	parser.line = NULL;
-	parser.split_line = NULL;
 	parser.fd = check_input(argc, argv);
 	while ((gnl = get_next_line(parser.fd, &parser.line)) != -1)
 	{
@@ -86,11 +85,3 @@ void	parsing(int argc, char *argv[], t_render *render)
 	free(parser.line);
 	close(parser.fd);
 }
-
-// int		main(int argc, char	*argv[])
-// {
-// 	t_render	render;
-	
-// 	parsing(argc, argv, &render);
-// 	return (0);
-// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:44:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/20 20:20:30 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 02:27:53 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		free_split_line(char **split_line)
 	free(split_line);
 }
 
-void	split_vec(t_vec *rgb, char *line)
+void	split_vec(t_vec *xyz, char *line)
 {
 	char		**split_line;
 
@@ -34,9 +34,9 @@ void	split_vec(t_vec *rgb, char *line)
 		error(NULL);
 	if (count_split_line(split_line) != 3)
 		error("Check Information : [x,y,z]");
-	rgb->x = ft_atof(split_line[0]);
-	rgb->y = ft_atof(split_line[1]);
-	rgb->z = ft_atof(split_line[2]);
+	xyz->x = ft_atof(split_line[0]);
+	xyz->y = ft_atof(split_line[1]);
+	xyz->z = ft_atof(split_line[2]);
 	free_split_line(split_line);
 }
 

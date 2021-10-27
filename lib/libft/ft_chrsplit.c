@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 04:02:52 by dim               #+#    #+#             */
-/*   Updated: 2021/07/25 04:04:20 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 04:03:17 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,18 @@ char		**ft_chrsplit(char const *s, char *sep)
 	size_t	length;
 
 	if (s == NULL)
-		return (NULL);
+		return(NULL);
 	length = ft_strlen(s);
 	sentence = ft_strdup(s);
 	if (sentence == NULL)
-		return (NULL);
+		return(NULL);
 	sentences = create_sentences(sentence, sep);
 	if (sentences == NULL)
-		return (NULL);
+		return(NULL);
 	if (!fill_sentences(sentences, sentence, length))
 	{
 		free(sentence);
-		return (NULL);
+		return(NULL);
 	}
 	free(sentence);
 	return (sentences);

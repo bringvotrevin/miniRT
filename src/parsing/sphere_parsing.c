@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere_parsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:15:19 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 04:01:47 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,6 @@ t_sphere	*save_sphere(t_vec point, double diameter, t_vec color1)
 	return (sphere);
 }
 
-t_object	*add_object(t_object **head, void *parsed_obj,\
-						int (*hit)(void *, t_ray *, t_hit *))
-{
-	t_object	*new_object;
-
-	new_object = (t_object *)malloc(sizeof(t_object));
-	if (new_object == NULL || parsed_obj == NULL)
-		return (NULL);
-	new_object->object = parsed_obj;
-	new_object->hit = hit;
-	new_object->next = *head;
-	*head = new_object;
-	return (new_object);
-}
-
 void		sphere_parsing(t_render *render, char **split_line)
 {
 	t_vec	point;
@@ -75,3 +60,17 @@ void		sphere_parsing(t_render *render, char **split_line)
 		error("Parsing Sphere error");
 }
 
+t_object	*add_object(t_object **head, void *parsed_obj,\
+						int (*hit)(void *, t_ray *, t_hit *))
+{
+	t_object	*new_object;
+
+	new_object = (t_object *)malloc(sizeof(t_object));
+	if (new_object == NULL || parsed_obj == NULL)
+		return (NULL);
+	new_object->object = parsed_obj;
+	new_object->hit = hit;
+	new_object->next = *head;
+	*head = new_object;
+	return (new_object);
+}
