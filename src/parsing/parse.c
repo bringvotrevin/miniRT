@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:44:00 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 04:05:19 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:28:40 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	find_element(t_parser *parser)
 		error("Wrong identifier");
 }
 
-int			check_input(int	argc, char	**argv)
+int	check_input(int	argc, char	**argv)
 {
 	int		ext;
 	char	*save;
-	int 	fd;
+	int		fd;
 
 	save = "--save";
 	if (argc < 2 || argc > 3)
@@ -60,28 +60,26 @@ int			check_input(int	argc, char	**argv)
 void	parsing(int argc, char *argv[], t_render *render)
 {
 	t_parser	parser;
-	int			gnl;
+	int			res;
 
 	parser.render = render;
 	parser.line = NULL;
 	parser.fd = check_input(argc, argv);
-	while ((gnl = get_next_line(parser.fd, &parser.line)) != -1)
+	while (1)
 	{
+		res = get_next_line(parser.fd, &parser.line);
+		if (res < 0)
+			error("Read error");
 		parser.split_line = ft_chrsplit(parser.line, "\t\n\v\r ");
 		if (parser.split_line == NULL)
 			error(NULL);
 		if (parser.split_line[0] != NULL)
 			find_element(&parser);
-		if (gnl == 0)
-			break ;
 		free_split_line(parser.split_line);
 		free(parser.line);
-		parser.split_line = NULL;
 		parser.line = NULL;
+		if (res == 0)
+			break ;
 	}
-	if (gnl == -1)
-		error("Read error");
-	free_split_line(parser.split_line);
-	free(parser.line);
 	close(parser.fd);
 }

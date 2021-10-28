@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 04:17:08 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/05/04 18:57:53 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/28 17:39:27 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static t_backup	*fd_header = NULL;
 	t_backup		*node;
@@ -40,7 +40,7 @@ int			get_next_line(int fd, char **line)
 	return (1);
 }
 
-t_backup		*find_fd(t_backup **fd_header, int fd)
+t_backup	*find_fd(t_backup **fd_header, int fd)
 {
 	t_backup	*lst;
 
@@ -64,7 +64,7 @@ t_backup		*find_fd(t_backup **fd_header, int fd)
 	return (lst);
 }
 
-void		del_node(t_backup **fd_header, int fd)
+void	del_node(t_backup **fd_header, int fd)
 {
 	t_backup	*ptr;
 	t_backup	*before;
@@ -93,7 +93,7 @@ void		del_node(t_backup **fd_header, int fd)
 	}
 }
 
-void		clear_list(t_backup **fd_header)
+void	clear_list(t_backup **fd_header)
 {
 	t_backup	*tmp1;
 	t_backup	*tmp2;

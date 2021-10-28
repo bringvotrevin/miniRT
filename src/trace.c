@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 17:21:05 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:30:13 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	start_trace(t_trace *trace, t_world *world)
 		while (x < trace->width)
 		{
 			hit.color = create_vec(0, 0, 0);
-			ray = make_ray(trace, world->cam, x, y); 
+			ray = make_ray(trace, world->cam, x, y);
 			if (trace_world(world, &ray, &hit))
 			{
 				trace_light(world, &hit);

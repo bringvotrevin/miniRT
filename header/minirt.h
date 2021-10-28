@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:18:58 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:33:46 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <fcntl.h> //open
 # include <unistd.h> //close
 # include <stdlib.h>
+# include <errno.h>
+# include <string.h>
 # include <math.h>
 
 //init.c
@@ -27,7 +29,6 @@ void		init_render(t_render *render);
 void		init_shadow_ray(t_light *light, t_ray *shadow, t_hit *hit);
 
 //render.c
-int			end_render(t_render *render);
 void		start_render(t_render *render);
 
 //mlx.c
@@ -60,4 +61,12 @@ void		trace_light(t_world *world, t_hit *hit);
 //utils.c
 void		swap_double(double *a, double *b);
 double		check_max(double a, double b);
+
+//error.c
+void		error(char *msg);
+
+//clear.c
+void		clear_render(t_world *world);
+void		clear_mlx_window(t_trace *trace);
+
 #endif

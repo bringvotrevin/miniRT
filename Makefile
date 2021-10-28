@@ -13,7 +13,6 @@ LIBS = -L./lib/libft -lft\
 INC = -I./header -I./src -I./lib
 
 SRCDIR = ./src/parsing/\
-		 ./src/util/\
 		 ./src/vector/\
 		 ./src/hit/\
 		 ./src
@@ -28,8 +27,6 @@ SRCS_PARSE = $(addprefix ./src/parsing/, \
 			 parse.c\
 			 plane_parsing.c\
 			 sphere_parsing.c)
-
-SRCS_UTIL = ./src/util/error.c
 
 SRCS_VECTOR = $(addprefix ./src/vector/, \
 			  vector.c\
@@ -50,10 +47,11 @@ SRCS_OTHER = $(addprefix ./src/, \
 			   light.c \
 			   utils.c \
 			   init.c \
+			   clear.c \
+			   error.c \
 			   )
 
 SRCS = $(SRCS_PARSE)\
-	   $(SRCS_UTIL)\
 	   $(SRCS_VECTOR)\
 	   $(SRCS_HIT)\
 	   $(SRCS_OTHER)\

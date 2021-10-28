@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere_parsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:27 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 04:01:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:30:53 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	validate_sphere(t_vec color)
 	if (color.x < 0 || color.x > 255
 		|| color.y < 0 || color.y > 255
 		|| color.z < 0 || color.z > 255)
-	 	flag = false;
+		flag = false;
 	return (flag);
 }
 
@@ -37,12 +37,12 @@ t_sphere	*save_sphere(t_vec point, double diameter, t_vec color1)
 	return (sphere);
 }
 
-void		sphere_parsing(t_render *render, char **split_line)
+void	sphere_parsing(t_render *render, char **split_line)
 {
 	t_vec	point;
-	double		diameter;
+	double	diameter;
 	t_vec	color;
-	
+
 	if (count_split_line(split_line) != 4)
 		error("Information count error on Sphere");
 	if (!validate_vec(split_line[1])
@@ -54,13 +54,13 @@ void		sphere_parsing(t_render *render, char **split_line)
 	split_vec(&color, split_line[3]);
 	if (!validate_sphere(color))
 		error("Information range error on Sphere");
-	if (add_object(&render->world.object,\
-				save_sphere(point, diameter, color),\
+	if (add_object(&render->world.object, \
+				save_sphere(point, diameter, color), \
 				hit_sphere) == NULL)
 		error("Parsing Sphere error");
 }
 
-t_object	*add_object(t_object **head, void *parsed_obj,\
+t_object	*add_object(t_object **head, void *parsed_obj, \
 						int (*hit)(void *, t_ray *, t_hit *))
 {
 	t_object	*new_object;

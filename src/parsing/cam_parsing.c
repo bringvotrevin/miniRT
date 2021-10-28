@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:06:56 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 17:33:32 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ bool	validate_cam(t_vec unit_vec, double fov)
 }
 
 void	init_cam_matrix(t_vec (*matrix)[3], double p, double t)
-//회전 변환 행렬
-//(월드좌표축->카메라좌표축과 같은 방향으로)
 {
 	(*matrix)[0] = create_vec(
 			cos(p),

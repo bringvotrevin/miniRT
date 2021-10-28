@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:44:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 02:27:53 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 17:34:40 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-void		free_split_line(char **split_line)
+void	free_split_line(char **split_line)
 {
 	char	**ptr;
 
@@ -40,7 +40,7 @@ void	split_vec(t_vec *xyz, char *line)
 	free_split_line(split_line);
 }
 
-bool		validate_vec(char *line)
+bool	validate_vec(char *line)
 {
 	char	**split_line;
 	char	**ptr;
@@ -61,7 +61,7 @@ bool		validate_vec(char *line)
 	return (flag);
 }
 
-int		validate_float(char *line)
+int	validate_float(char *line)
 {
 	if (*line == '-' || *line == '+')
 		line++;
@@ -76,7 +76,7 @@ int		validate_float(char *line)
 	return (1);
 }
 
-int		count_split_line(char **line)
+int	count_split_line(char **line)
 {
 	int		count;
 

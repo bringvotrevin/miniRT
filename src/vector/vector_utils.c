@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 20:11:34 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:13:16 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:31:12 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_vec	product_vec(t_vec v, double scalar)
 	return (v);
 }
 
-t_vec		product_vec2(t_vec v1, t_vec v2)
+t_vec	product_vec2(t_vec v1, t_vec v2)
 {
 	t_vec	new;
 

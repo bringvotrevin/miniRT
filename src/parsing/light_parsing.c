@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:07:07 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 17:34:24 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-bool		validate_light(double bright, t_vec rgb)
+bool	validate_light(double bright, t_vec rgb)
 {
 	bool	flag;
 
@@ -22,11 +22,11 @@ bool		validate_light(double bright, t_vec rgb)
 	if (rgb.x < 0 || rgb.x > 255
 		|| rgb.y < 0 || rgb.y > 255
 		|| rgb.z < 0 || rgb.z > 255)
-	 	flag = false;
+		flag = false;
 	return (flag);
 }
 
-t_light		*save_light(t_vec origin1, double bright, t_vec rgb)
+t_light	*save_light(t_vec origin1, double bright, t_vec rgb)
 {
 	t_light		*light;
 
@@ -39,7 +39,7 @@ t_light		*save_light(t_vec origin1, double bright, t_vec rgb)
 	return (light);
 }
 
-void		light_parsing(t_render *render, char **split_line)
+void	light_parsing(t_render *render, char **split_line)
 {
 	double		bright;
 	t_vec		origin;

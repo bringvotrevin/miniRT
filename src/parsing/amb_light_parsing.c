@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/19 20:06:22 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 17:33:23 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-bool		validate_amb_light(double light_ratio, t_vec *rgb)
+bool	validate_amb_light(double light_ratio, t_vec *rgb)
 {
 	bool	flag;
 
@@ -28,24 +28,24 @@ bool		validate_amb_light(double light_ratio, t_vec *rgb)
 
 t_vec	*save_amb_light(double light_ratio, t_vec *rgb)
 {
-	t_vec	*aloc_rgb;
-	
-	aloc_rgb = (t_vec *)malloc(sizeof(t_vec));
-	if (aloc_rgb == NULL)
+	t_vec	*alloc_rgb;
+
+	alloc_rgb = (t_vec *)malloc(sizeof(t_vec));
+	if (alloc_rgb == NULL)
 		return (NULL);
-	*aloc_rgb = product_vec(*rgb, light_ratio / 255);
-	return (aloc_rgb);
+	*alloc_rgb = product_vec(*rgb, light_ratio / 255);
+	return (alloc_rgb);
 }
 
 void	amb_light_parsing(t_render *render, char **split_line)
 {
-	double		light_ratio;
+	double	light_ratio;
 	t_vec	rgb;
 
 	if (count_split_line(split_line) != 3)
 		error("Information count error on Ambient lightning");
-	if (!validate_float(split_line[1]) ||\
-	 !validate_vec(split_line[2]))
+	if (!validate_float(split_line[1]) \
+		|| !validate_vec(split_line[2]))
 		error("Information error on Ambien lightning");
 	light_ratio = ft_atof(split_line[1]);
 	split_vec(&rgb, split_line[2]);

@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:14:57 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:11:17 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ typedef struct s_trace
 }	t_trace;
 
 //==========t_world==========
-typedef struct  s_world
+typedef struct s_world
 {
 	t_object			*object;
 	t_light				*light;
@@ -93,7 +93,7 @@ typedef struct  s_world
 }	t_world;
 
 //==========t_render==========
-typedef struct  s_render
+typedef struct s_render
 {
 	t_world		world;
 	t_trace		trace;

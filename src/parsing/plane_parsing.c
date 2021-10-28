@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:14:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:30:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ bool	validate_plane(t_vec orient, t_vec color)
 	if (color.x < 0 || color.x > 255
 		|| color.y < 0 || color.y > 255
 		|| color.z < 0 || color.z > 255)
-	 	flag = false;
+		flag = false;
 	return (flag);
 }
 
-t_plane		*save_plane(t_vec origin1, t_vec orient1, t_vec color1)
+t_plane	*save_plane(t_vec origin1, t_vec orient1, t_vec color1)
 {
 	t_plane		*plane;
 
@@ -41,7 +41,7 @@ t_plane		*save_plane(t_vec origin1, t_vec orient1, t_vec color1)
 	return (plane);
 }
 
-void		plane_parsing(t_render *render, char **split_line)
+void	plane_parsing(t_render *render, char **split_line)
 {
 	t_vec	origin;
 	t_vec	orient;
@@ -58,9 +58,8 @@ void		plane_parsing(t_render *render, char **split_line)
 	split_vec(&color, split_line[3]);
 	if (!validate_plane(orient, color))
 		error("Information range error on Plane");
-	if (add_object(&render->world.object,\
-			save_plane(origin, orient, color),\
+	if (add_object(&render->world.object, \
+			save_plane(origin, orient, color), \
 			hit_plane) == NULL)
 		error("Parsing Plane error");
 }
-

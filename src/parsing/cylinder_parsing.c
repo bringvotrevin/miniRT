@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:12 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 04:02:10 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 17:34:04 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	validate_cylinder(t_vec orient, t_vec color)
 	if (color.x < 0 || color.x > 255
 		|| color.y < 0 || color.y > 255
 		|| color.z < 0 || color.z > 255)
-	 	flag = false;
+		flag = false;
 	return (flag);
 }
 
@@ -44,7 +44,7 @@ t_cylinder	*save_cylinder(t_vec point1, t_vec orient1,
 	return (cylinder);
 }
 
-void		cylinder_parsing(t_render *render, char **split_line)
+void	cylinder_parsing(t_render *render, char **split_line)
 {
 	t_vec	origin;
 	t_vec	orient;
@@ -64,8 +64,8 @@ void		cylinder_parsing(t_render *render, char **split_line)
 	split_vec(&color, split_line[5]);
 	if (!validate_cylinder(orient, color))
 		error("Information range error on Cylinder");
-	if (add_object(&render->world.object,\
-				save_cylinder(origin, orient, diameter_height, color),\
+	if (add_object(&render->world.object, \
+				save_cylinder(origin, orient, diameter_height, color), \
 				hit_cylinder) == NULL)
 		error("Parsing Cylinder error");
 }
