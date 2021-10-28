@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:30:18 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 18:11:17 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 19:04:09 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ typedef struct s_plane
 
 typedef struct s_cylinder
 {
-	t_vec 	origin;
+	t_vec	origin;
 	t_vec	orient;
 	t_vec	color;
 	double	diameter;
