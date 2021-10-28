@@ -3,37 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: deulee <deulee@student.42.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/08 19:29:19 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/07/25 05:09:37 by dim              ###   ########.fr       */
+/*   Created: 2020/12/31 12:10:03 by deulee            #+#    #+#             */
+/*   Updated: 2021/08/11 17:02:58 by deulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE 1024
 
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_backup
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+typedef struct s_buff
 {
 	int				fd;
-	char			*backup;
-	int				backup_size;
+	unsigned int	buff_size;
 	char			buffer[BUFFER_SIZE];
-	struct s_backup		*next;
-}				t_backup;
+	char			*backup;
+	struct s_buff	*next;
+}					t_buff;
 
-int				get_next_line(int fd, char **line);
-t_backup		*find_fd(t_backup **fd_header, int fd);
-int				read_line(t_backup *node, char **line, int fd);
-int				malloc_backup(t_backup *node, int read_byte);
-int				find_end(t_backup *node, char **line);
-int				line_backup_update(t_backup *node, char **line, int i);
-char			*ft_strdup_gnl(const char *s, int size);
-void			del_node(t_backup **fd_header, int fd);
-void			clear_list(t_backup **fd_header);
+int					get_next_line(int fd, char **line);
+int					find_next_line(char **line, t_buff *list);
+int					make_line(char **line, t_buff *list);
+int					make_backup(char *backupline, t_buff *list,
+						unsigned int nsize);
+char				*ft_strndup(char *src, unsigned int size);
+int					backup_update(t_buff *list, unsigned int len);
+void				clear_fd(t_buff **header);
+void				del_fd(int fd, t_buff **header);
+t_buff				*find_fd_or_make(int fd, t_buff **header);
 
 #endif
