@@ -3,26 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jungwkim <jungwkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:12:19 by jungwkim          #+#    #+#             */
-/*   Updated: 2021/05/04 15:07:16 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/28 18:57:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		**create_sentences(char *s, char c)
+static void	init(int *idx, size_t *flag, size_t *count)
+{
+	*idx = -1;
+	*flag = 0;
+	*count = 0;
+}
+
+static char	**create_sentences(char *s, char c)
 {
 	int		idx;
 	size_t	flag;
 	size_t	count;
 	char	**sentences;
 
-	idx = -1;
-	flag = 0;
-	count = 0;
+	init(&idx, &flag, &count);
 	while (s[++idx])
+	{
 		if (s[idx] == c)
 		{
 			s[idx] = '\0';
@@ -32,6 +38,7 @@ static char		**create_sentences(char *s, char c)
 		}
 		else
 			flag = 1;
+	}
 	if (flag)
 		count++;
 	sentences = (char **)malloc(sizeof(char *) * (count + 1));
@@ -41,9 +48,9 @@ static char		**create_sentences(char *s, char c)
 	return (sentences);
 }
 
-static void		clear_sentences(char **str, size_t count)
+static void	clear_sentences(char **str, size_t count)
 {
-	size_t idx;
+	size_t	idx;
 
 	idx = 0;
 	while (idx < count)
@@ -51,10 +58,10 @@ static void		clear_sentences(char **str, size_t count)
 	free(str);
 }
 
-static int		fill_sentences(char **sentences, char *sentence, size_t length)
+static int	fill_sentences(char **sentences, char *sentence, size_t length)
 {
-	size_t idx;
-	size_t count;
+	size_t	idx;
+	size_t	count;
 
 	idx = 0;
 	count = 0;
@@ -76,7 +83,7 @@ static int		fill_sentences(char **sentences, char *sentence, size_t length)
 	return (1);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**sentences;
 	char	*sentence;

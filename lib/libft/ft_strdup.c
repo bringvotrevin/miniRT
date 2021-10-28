@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 03:24:20 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/01/02 06:02:57 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/28 18:55:06 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	while (s[i])
 		i++;
-	if (!(cpy = (char *)malloc(sizeof(char) * (i + 1))))
+	cpy = (char *)malloc(sizeof(char) * (i + 1));
+	if (cpy == NULL)
 		return (0);
 	i = 0;
 	while (s[i])

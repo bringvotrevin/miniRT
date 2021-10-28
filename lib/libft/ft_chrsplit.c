@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chrsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 04:02:52 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 04:03:17 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 18:58:37 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	init(int *idx, size_t *flag, size_t *count)
+{
+	*idx = -1;
+	*flag = 0;
+	*count = 0;
+}
 
 static char	**create_sentences(char *s, char *sep)
 {
@@ -19,10 +26,9 @@ static char	**create_sentences(char *s, char *sep)
 	size_t	count;
 	char	**sentences;
 
-	idx = -1;
-	flag = 0;
-	count = 0;
+	init(&idx, &flag, &count);
 	while (s[++idx])
+	{
 		if (ft_strchr(sep, s[idx]))
 		{
 			s[idx] = '\0';
@@ -32,6 +38,7 @@ static char	**create_sentences(char *s, char *sep)
 		}
 		else
 			flag = 1;
+	}
 	if (flag)
 		count++;
 	sentences = (char **)malloc(sizeof(char *) * (count + 1));
@@ -76,25 +83,25 @@ static int	fill_sentences(char **sentences, char *sentence, size_t length)
 	return (1);
 }
 
-char		**ft_chrsplit(char const *s, char *sep)
+char	**ft_chrsplit(char const *s, char *sep)
 {
 	char	**sentences;
 	char	*sentence;
 	size_t	length;
 
 	if (s == NULL)
-		return(NULL);
+		return (NULL);
 	length = ft_strlen(s);
 	sentence = ft_strdup(s);
 	if (sentence == NULL)
-		return(NULL);
+		return (NULL);
 	sentences = create_sentences(sentence, sep);
 	if (sentences == NULL)
-		return(NULL);
+		return (NULL);
 	if (!fill_sentences(sentences, sentence, length))
 	{
 		free(sentence);
-		return(NULL);
+		return (NULL);
 	}
 	free(sentence);
 	return (sentences);
