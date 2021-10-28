@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 21:10:52 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:22:05 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 16:45:21 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int		main(int argc, char **argv)
 	init_render(&render);
 	parsing(argc, argv, &render);
 	start_render(&render);
-	// system("leaks miniRT");
+	system("leaks miniRT");
 	return (0);
 }

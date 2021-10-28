@@ -50,6 +50,7 @@ SRCS_OTHER = $(addprefix ./src/, \
 			   light.c \
 			   utils.c \
 			   init.c \
+			   clear.c \
 			   )
 
 SRCS = $(SRCS_PARSE)\

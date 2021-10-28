@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:18:58 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 17:19:14 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void		init_render(t_render *render);
 void		init_shadow_ray(t_light *light, t_ray *shadow, t_hit *hit);
 
 //render.c
-int			end_render(t_render *render);
 void		start_render(t_render *render);
 
 //mlx.c
@@ -60,4 +59,9 @@ void		trace_light(t_world *world, t_hit *hit);
 //utils.c
 void		swap_double(double *a, double *b);
 double		check_max(double a, double b);
+
+//clear.c
+void		clear_render(t_world *world);
+void		clear_mlx_window(t_trace *trace);
+
 #endif
