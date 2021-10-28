@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit_sphere.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:26:58 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 17:58:33 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/28 17:22:05 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	loss_of_significance(double *q, double b, double discr)
 		*q = -1 / 2.0 * (b - sqrt(discr));
 }
 
-int		solve_quadratic(double a, double b, double c, t_ray *ray)
+int	solve_quadratic(double a, double b, double c, t_ray *ray)
 {
 	double	discr;
 	double	q;

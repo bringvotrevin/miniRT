@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit_cylinder.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 18:53:24 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/27 17:46:51 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/28 17:21:53 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ void	init_coefficient(t_ray *ray, t_cylinder *cylinder, t_vec *coefficient)
 
 	n = cylinder->orient;
 	co = minus_vec(ray->origin, cylinder->origin);
-	coefficient->x = dot_vec(ray->dir, ray->dir) - pow(dot_vec(ray->dir, n), 2.0);
-	coefficient->y = 2 * (dot_vec(co, ray->dir) - (dot_vec(co, n) * dot_vec(ray->dir, n)));
-	coefficient->z = dot_vec(co, co) - pow(dot_vec(co, n), 2.0) - pow((cylinder->diameter / 2), 2.0);
+	coefficient->x = dot_vec(ray->dir, ray->dir) \
+					- pow(dot_vec(ray->dir, n), 2.0);
+	coefficient->y = 2 * (dot_vec(co, ray->dir) \
+					- (dot_vec(co, n) * dot_vec(ray->dir, n)));
+	coefficient->z = dot_vec(co, co) - pow(dot_vec(co, n), 2.0) \
+					- pow((cylinder->diameter / 2), 2.0);
 }
 
 t_vec	get_normal_vec(t_ray *ray, t_cylinder *cylinder)

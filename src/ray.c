@@ -6,18 +6,18 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:25 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:20:38 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 17:19:02 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/minirt.h"
 
-double		deg_to_rad(double angle)
+double	deg_to_rad(double angle)
 {
 	return (angle * PI / 180);
 }
 
-void		apply_matrix(t_vec *matrix, t_vec *point)
+void	apply_matrix(t_vec *matrix, t_vec *point)
 {
 	t_vec	new;
 
@@ -34,7 +34,8 @@ t_ray	make_ray(t_trace *trace, t_cam *cam, int x, int y)
 
 	ray.origin = cam->origin;
 	scale = FOCAL_LEN * tan(deg_to_rad(cam->fov / 2));
-	ray.dir.x = (2.0 * ((x + 0.5) / (double)trace->width) - 1.0) * trace->ratio * scale;
+	ray.dir.x = (2.0 * ((x + 0.5)
+				/ (double)trace->width) - 1.0) * trace->ratio * scale;
 	ray.dir.y = (2.0 * ((y + 0.5) / (double)trace->height) - 1.0) * scale;
 	ray.dir.z = FOCAL_LEN;
 	ray.dir = unit_vec(ray.dir);

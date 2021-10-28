@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   trace.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:24:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 18:00:28 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/28 17:21:05 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/minirt.h"
 
-int		trace_world(t_world *world, t_ray *ray, t_hit *hit)
+int	trace_world(t_world *world, t_ray *ray, t_hit *hit)
 {
 	double		time;
 	t_hit		tmp_hit;
@@ -62,9 +62,7 @@ void	start_trace(t_trace *trace, t_world *world)
 				write_pixel(trace, x, y, &hit.color);
 			}
 			else
-			{
 				write_pixel(trace, x, y, NULL);
-			}
 			x++;
 		}
 		y++;

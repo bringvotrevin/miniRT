@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 21:53:48 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/27 18:00:08 by yoojlee          ###   ########.fr       */
+/*   Updated: 2021/10/28 17:16:56 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ t_vec	specular_light(t_light *light, t_hit *hit)
 	n = product_vec(n, 2 * dot_vec(l, n));
 	reflect_vec = minus_vec(n, l);
 	angle = dot_vec(unit_vec(reflect_vec),
-					unit_vec(product_vec(hit->dir, -1)));
+			unit_vec(product_vec(hit->dir, -1)));
 	if (angle < 0)
 		angle = 0;
 	ratio = product_vec(divide_vec(light->color, 255.0f),
-							light->ratio * pow(angle, 200.0));
+			light->ratio * pow(angle, 200.0));
 	return (ratio);
 }
 
 static void	phong_shading(t_light *light, t_ray *shadow,
-											t_hit *hit, t_vec *ratio)
+	t_hit *hit, t_vec *ratio)
 {
 	t_vec	diffuse;
 	t_vec	specular;
@@ -78,7 +78,7 @@ static int	block_light(t_world *world, t_ray *shadow,
 	return (0);
 }
 
-void		trace_light(t_world *world, t_hit *hit)
+void	trace_light(t_world *world, t_hit *hit)
 {
 	t_light		*light;
 	t_ray		shadow;
@@ -89,7 +89,7 @@ void		trace_light(t_world *world, t_hit *hit)
 	ratio = *world->ambient_light;
 	init_shadow_ray(light, &shadow, hit);
 	if (dot_vec(shadow.dir, hit->normal) > 0
-			&& !block_light(world, &shadow, &tmp, light))
+		&& !block_light(world, &shadow, &tmp, light))
 		phong_shading(light, &shadow, hit, &ratio);
 	hit->color = product_vec2(hit->color, ratio);
 	hit->color.x = check_max(hit->color.x, 255.0f);

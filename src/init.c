@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:18:36 by dim               #+#    #+#             */
-/*   Updated: 2021/10/27 20:17:18 by dim              ###   ########.fr       */
+/*   Updated: 2021/10/28 16:59:09 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_trace(t_trace *trace)
 	trace->addr = NULL;
 }
 
-void			init_render(t_render *render)
+void	init_render(t_render *render)
 {
 	init_world(&render->world);
 	init_trace(&render->trace);
