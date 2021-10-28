@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: deulee <deulee@student.42.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 04:17:08 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/28 17:39:27 by dim              ###   ########.fr       */
+/*   Created: 2020/12/31 12:08:56 by deulee            #+#    #+#             */
+/*   Updated: 2021/08/11 17:11:28 by deulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,97 +14,121 @@
 
 int	get_next_line(int fd, char **line)
 {
-	static t_backup	*fd_header = NULL;
-	t_backup		*node;
-	int				flag;
+	static t_buff		*saving = NULL;
+	t_buff				*list;
+	int					flag;
 
-	if (BUFFER_SIZE < 1 || !(node = find_fd(&fd_header, fd)) || line == NULL)
+	if (BUFFER_SIZE < 1 || line == NULL)
 		return (-1);
-	while (1)
+	list = find_fd_or_make(fd, &saving);
+	if (list == NULL)
 	{
-		flag = read_line(node, line, fd);
-		if (flag == -1)
-		{
-			clear_list(&fd_header);
-			return (-1);
-		}
-		else if (flag == 1)
-			break ;
-		else if (flag == 0)
-		{
-			*line = ft_strdup_gnl(node->backup, node->backup_size);
-			del_node(&fd_header, fd);
-			return (0);
-		}
+		clear_fd(&saving);
+		return (-1);
 	}
+	*line = NULL;
+	flag = find_next_line(line, list);
+	if (flag == 0)
+		del_fd(fd, &saving);
+	else if (flag == -1)
+	{
+		clear_fd(&saving);
+		free(*line);
+	}
+	return (flag);
+}
+
+int	find_next_line(char **line, t_buff *list)
+{
+	int		readsize;
+	int		flag;
+
+	flag = make_line(line, list);
+	if (flag == -1 || flag == 1)
+		return (flag);
+	readsize = read(list->fd, list->buffer, BUFFER_SIZE);
+	while (readsize > 0)
+	{
+		if (!(make_backup(list->buffer, list, readsize)))
+			return (-1);
+		flag = make_line(line, list);
+		if (flag == -1 || flag == 1)
+			return (flag);
+		readsize = read(list->fd, list->buffer, BUFFER_SIZE);
+	}
+	if (readsize == -1)
+		return (-1);
+	*line = ft_strndup(list->backup, list->buff_size);
+	if (*line == NULL)
+		return (-1);
+	return (0);
+}
+
+int	make_line(char **line, t_buff *list)
+{
+	unsigned int	len;
+
+	if (list->buff_size == 0)
+		return (0);
+	len = 0;
+	while (len < list->buff_size)
+	{
+		if (list->backup[len] == '\n')
+		{
+			*line = ft_strndup(list->backup, len);
+			if (*line == NULL)
+				return (-1);
+			if (!(backup_update(list, len)))
+				return (-1);
+			return (1);
+		}
+		len++;
+	}
+	return (0);
+}
+
+int	make_backup(char *backupline, t_buff *list, unsigned int nsize)
+{
+	char			*backup;
+	unsigned int	size;
+	unsigned int	i;
+	unsigned int	j;
+
+	size = list->buff_size + nsize;
+	backup = (char *)malloc(sizeof(char) * size);
+	i = 0;
+	while (i < list->buff_size)
+	{
+		backup[i] = list->backup[i];
+		i++;
+	}
+	j = 0;
+	while (j < nsize)
+	{
+		backup[i] = backupline[j];
+		i++;
+		j++;
+	}
+	free(list->backup);
+	list->buff_size = size;
+	list->backup = backup;
 	return (1);
 }
 
-t_backup	*find_fd(t_backup **fd_header, int fd)
+char	*ft_strndup(char *src, unsigned int size)
 {
-	t_backup	*lst;
+	char			*str;
+	unsigned int	i;
 
-	lst = *fd_header;
-	while (lst != NULL)
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size)
 	{
-		if (lst->fd == fd)
-			break ;
-		lst = lst->next;
+		str[i] = src[i];
+		i++;
 	}
-	if (lst == NULL)
-	{
-		if (!(lst = (t_backup *)malloc(sizeof(t_backup))))
-			return (NULL);
-		lst->fd = fd;
-		lst->backup = NULL;
-		lst->backup_size = 0;
-		lst->next = *fd_header;
-		*fd_header = lst;
-	}
-	return (lst);
-}
-
-void	del_node(t_backup **fd_header, int fd)
-{
-	t_backup	*ptr;
-	t_backup	*before;
-
-	ptr = *fd_header;
-	if (fd == ptr->fd)
-	{
-		*fd_header = ptr->next;
-		free(ptr->backup);
-		free(ptr);
-		return ;
-	}
-	before = ptr;
-	ptr = ptr->next;
-	while (ptr != NULL)
-	{
-		if (ptr->fd == fd)
-		{
-			before->next = ptr->next;
-			free(ptr->backup);
-			free(ptr);
-			break ;
-		}
-		before = ptr;
-		ptr = ptr->next;
-	}
-}
-
-void	clear_list(t_backup **fd_header)
-{
-	t_backup	*tmp1;
-	t_backup	*tmp2;
-
-	tmp1 = *fd_header;
-	while (tmp1 != NULL)
-	{
-		tmp2 = tmp1->next;
-		free(tmp1->backup);
-		free(tmp1);
-		tmp1 = tmp2;
-	}
-	*fd_header = NULL;
+	str[i] = '\0';
+	return (str);
 }
