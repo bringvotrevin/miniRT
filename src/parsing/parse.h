@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:08:16 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 18:34:45 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 20:23:10 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "../vector/vector.h"
-# include "libft/libft.h"
-# include "libft/get_next_line.h"
+# include "../../lib/libft/libft.h"
+# include "../../lib/libft/get_next_line.h"
 # include "../../header/minirt.h"
 
 typedef struct s_parser

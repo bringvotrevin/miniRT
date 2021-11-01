@@ -57,23 +57,15 @@ SRCS = $(SRCS_PARSE)\
 	   $(SRCS_OTHER)\
 	   ./main.c
 
-OBJDIR = objects
-
 vpath %.c $(SRCDIR)
 
-OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
+OBJS = $(SRCS:.c=.o)
 
 $(NAME) :	$(OBJS)
 			make mms
 			make opengl
 			make libft
 			$(CC) $(LIBS) $(INC) $(CFLAGS) -framework OpenGL -framework AppKit -o $@ $^
-
-$(OBJDIR) :
-			mkdir $(OBJDIR)
-
-$(OBJDIR)/%.o : %.c $(OBJDIR)
-				$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 mms :
 		make -C lib/minilibx_mms_20200219
@@ -90,7 +82,7 @@ clean :
 		make -C lib/minilibx_opengl_20191021 clean
 		make -C lib/libft clean
 		rm -rf libmlx.dylib
-		rm -rf $(OBJDIR)
+		rm -rf $(OBJS)
 
 fclean : clean
 		 make -C lib/libft fclean
