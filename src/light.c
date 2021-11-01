@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 21:53:48 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/28 17:16:56 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 19:48:13 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_vec	specular_light(t_light *light, t_hit *hit)
 	return (ratio);
 }
 
-static void	phong_shading(t_light *light, t_ray *shadow,
+void	phong_shading(t_light *light, t_ray *shadow,
 	t_hit *hit, t_vec *ratio)
 {
 	t_vec	diffuse;
@@ -57,8 +57,8 @@ static void	phong_shading(t_light *light, t_ray *shadow,
 	*ratio = add_vec(*ratio, specular);
 }
 
-static int	block_light(t_world *world, t_ray *shadow,
-										t_hit *dump, t_light *light)
+int	block_light(t_world *world, t_ray *shadow,
+										t_hit *bump, t_light *light)
 {
 	t_vec		tmp;
 	double		dist;
@@ -69,7 +69,7 @@ static int	block_light(t_world *world, t_ray *shadow,
 	dist = sqrt(dot_vec(tmp, tmp));
 	while (obj_group)
 	{
-		if (obj_group->hit(obj_group->object, shadow, dump))
+		if (obj_group->hit(obj_group->object, shadow, bump))
 			if (shadow->time > 1.0e-5 && shadow->time < dist)
 				if (shadow->time < dist)
 					return (1);
@@ -82,14 +82,14 @@ void	trace_light(t_world *world, t_hit *hit)
 {
 	t_light		*light;
 	t_ray		shadow;
-	t_hit		tmp;
+	t_hit		bump;
 	t_vec		ratio;
 
 	light = world->light;
 	ratio = *world->ambient_light;
 	init_shadow_ray(light, &shadow, hit);
 	if (dot_vec(shadow.dir, hit->normal) > 0
-		&& !block_light(world, &shadow, &tmp, light))
+		&& !block_light(world, &shadow, &bump, light))
 		phong_shading(light, &shadow, hit, &ratio);
 	hit->color = product_vec2(hit->color, ratio);
 	hit->color.x = check_max(hit->color.x, 255.0f);
