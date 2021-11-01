@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 18:33:46 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 17:08:53 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdlib.h>
 # include <errno.h>
 # include <string.h>
+# include <stdio.h>
 # include <math.h>
 
 //init.c

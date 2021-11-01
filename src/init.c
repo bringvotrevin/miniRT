@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:18:36 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 16:59:09 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 19:51:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_render(t_render *render)
 
 void	init_shadow_ray(t_light *light, t_ray *shadow, t_hit *hit)
 {
-	shadow->origin = add_vec(hit->point, product_vec(hit->normal, 1.0e-6));
+	shadow->origin = add_vec(hit->point, product_scalar(hit->normal, 1.0e-6));
 	shadow->dir = unit_vec(minus_vec(light->origin, hit->point));
 	shadow->time = 0.0f;
 }

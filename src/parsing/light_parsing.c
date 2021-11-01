@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 04:45:02 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 17:34:24 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 17:15:29 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	light_parsing(t_render *render, char **split_line)
 	if (!validate_light(bright, rgb))
 		error("Information range error on Light");
 	if (render->world.light != NULL)
-		error("duplicated element");
+		error("Duplicated element on Light");
 	render->world.light = save_light(origin, bright, rgb);
 	if (render->world.light == NULL)
 		error(NULL);

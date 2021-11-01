@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:00:23 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 18:33:36 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 17:03:06 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ void	ft_putstr(char *str)
 
 void	error(char *msg)
 {
-	if (msg != NULL)
-		ft_putstr(msg);
-	else
-		ft_putstr(strerror(errno));
+	perror(msg);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 21:53:48 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/28 17:16:56 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 19:51:04 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_vec	diffuse_light(t_light *light, t_ray *shadow, t_hit *hit)
 	angle = dot_vec(unit_vec(shadow->dir), unit_vec(hit->normal));
 	if (angle < 0)
 		angle = 0;
-	ratio = product_vec(divide_vec(light->color, 255.0f), angle * light->ratio);
+	ratio = product_scalar(divide_vec(light->color, 255.0f), angle * light->ratio);
 	return (ratio);
 }
 
@@ -34,13 +34,13 @@ t_vec	specular_light(t_light *light, t_hit *hit)
 
 	l = minus_vec(light->origin, hit->point);
 	n = hit->normal;
-	n = product_vec(n, 2 * dot_vec(l, n));
+	n = product_scalar(n, 2 * dot_vec(l, n));
 	reflect_vec = minus_vec(n, l);
 	angle = dot_vec(unit_vec(reflect_vec),
-			unit_vec(product_vec(hit->dir, -1)));
+			unit_vec(product_scalar(hit->dir, -1)));
 	if (angle < 0)
 		angle = 0;
-	ratio = product_vec(divide_vec(light->color, 255.0f),
+	ratio = product_scalar(divide_vec(light->color, 255.0f),
 			light->ratio * pow(angle, 200.0));
 	return (ratio);
 }
@@ -91,7 +91,7 @@ void	trace_light(t_world *world, t_hit *hit)
 	if (dot_vec(shadow.dir, hit->normal) > 0
 		&& !block_light(world, &shadow, &tmp, light))
 		phong_shading(light, &shadow, hit, &ratio);
-	hit->color = product_vec2(hit->color, ratio);
+	hit->color = product_vec(hit->color, ratio);
 	hit->color.x = check_max(hit->color.x, 255.0f);
 	hit->color.y = check_max(hit->color.y, 255.0f);
 	hit->color.z = check_max(hit->color.z, 255.0f);
