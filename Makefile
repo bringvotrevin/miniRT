@@ -45,6 +45,7 @@ SRCS_OTHER = $(addprefix ./src/, \
 			   render.c\
 			   trace.c \
 			   light.c \
+			   specular_bonus.c \
 			   utils.c \
 			   init.c \
 			   clear.c \
@@ -76,6 +77,8 @@ opengl :
 
 libft :
 		make -C lib/libft
+
+bonus : $(NAME)
 
 clean :
 		make -C lib/minilibx_mms_20200219 clean

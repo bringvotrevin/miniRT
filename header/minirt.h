@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 20:29:57 by dim               #+#    #+#             */
-/*   Updated: 2021/11/01 17:08:53 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 20:35:14 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int			hit_plane(void *obj, t_ray *ray, t_hit *hit);
 int			hit_cylinder(void *obj, t_ray *ray, t_hit *hit);
 
 //light.c
+t_vec		specular_light(t_light *light, t_hit *hit);
 void		trace_light(t_world *world, t_hit *hit);
 
 //utils.c

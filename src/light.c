@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoojlee <yoojlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 21:53:48 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/11/01 19:59:26 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 20:36:46 by yoojlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,6 @@ t_vec	diffuse_light(t_light *light, t_ray *shadow, t_hit *hit)
 		angle = 0;
 	ratio = product_scalar(divide_vec(light->color, 255.0f), \
 							angle * light->ratio);
-	return (ratio);
-}
-
-t_vec	specular_light(t_light *light, t_hit *hit)
-{
-	double		angle;
-	t_vec		l;
-	t_vec		n;
-	t_vec		reflect_vec;
-	t_vec		ratio;
-
-	l = minus_vec(light->origin, hit->point);
-	n = hit->normal;
-	n = product_scalar(n, 2 * dot_vec(l, n));
-	reflect_vec = minus_vec(n, l);
-	angle = dot_vec(unit_vec(reflect_vec),
-			unit_vec(product_scalar(hit->dir, -1)));
-	if (angle < 0)
-		angle = 0;
-	ratio = product_scalar(divide_vec(light->color, 255.0f),
-			light->ratio * pow(angle, 200.0));
 	return (ratio);
 }
 
