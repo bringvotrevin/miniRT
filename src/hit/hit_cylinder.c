@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 18:53:24 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/28 17:21:53 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 19:53:41 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ t_vec	get_normal_vec(t_ray *ray, t_cylinder *cylinder)
 	t_vec	op_cosine;
 	t_vec	normal;
 
-	hit_point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
+	hit_point = add_vec(ray->origin, product_scalar(ray->dir, ray->time));
 	op = minus_vec(hit_point, cylinder->origin);
-	op_cosine = product_vec(cylinder->orient, dot_vec(op, cylinder->orient));
+	op_cosine = product_scalar(cylinder->orient, dot_vec(op, cylinder->orient));
 	normal = unit_vec(minus_vec(op, op_cosine));
 	if (ray->time == ray->t1)
-		normal = unit_vec(product_vec(normal, -1));
+		normal = unit_vec(product_scalar(normal, -1));
 	return (normal);
 }
 
@@ -59,7 +59,7 @@ int	intersect_cylinder(t_cylinder *cylinder, t_ray *ray, t_hit *hit)
 {
 	int		check;
 
-	hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
+	hit->point = add_vec(ray->origin, product_scalar(ray->dir, ray->time));
 	check = check_finite_range(hit->point, cylinder);
 	if (check == 1)
 		return (1);
@@ -68,7 +68,7 @@ int	intersect_cylinder(t_cylinder *cylinder, t_ray *ray, t_hit *hit)
 	else if (check == 0 && ray->time == ray->t0)
 	{
 		ray->time = ray->t1;
-		hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
+		hit->point = add_vec(ray->origin, product_scalar(ray->dir, ray->time));
 		check = check_finite_range(hit->point, cylinder);
 		if (check == 1)
 			return (1);

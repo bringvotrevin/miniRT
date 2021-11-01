@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 18:55:35 by yoojlee           #+#    #+#             */
-/*   Updated: 2021/10/28 18:30:27 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 19:52:36 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	hit_plane(void *obj, t_ray *ray, t_hit *hit)
 	hit->color = plane->color;
 	hit->normal = unit_vec(plane->orient);
 	if (dot_vec(hit->normal, ray->dir) > 0)
-		hit->normal = product_vec(hit->normal, -1);
-	hit->point = add_vec(ray->origin, product_vec(ray->dir, ray->time));
+		hit->normal = product_scalar(hit->normal, -1);
+	hit->point = add_vec(ray->origin, product_scalar(ray->dir, ray->time));
 	hit->origin = ray->origin;
 	hit->dir = ray->dir;
 	return (1);

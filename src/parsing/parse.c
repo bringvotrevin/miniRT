@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 03:44:00 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 18:28:40 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 17:28:45 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ void	find_element(t_parser *parser)
 int	check_input(int	argc, char	**argv)
 {
 	int		ext;
-	char	*save;
 	int		fd;
 
-	save = "--save";
-	if (argc < 2 || argc > 3)
+	if (argc != 2)
 		error("Wrong argument");
 	ext = ft_strlen(argv[1]);
 	if (ext < 4)
@@ -46,15 +44,18 @@ int	check_input(int	argc, char	**argv)
 		|| argv[1][ext - 2] != 'r'
 		|| argv[1][ext - 1] != 't')
 		error("Wrong file type");
-	if (argc == 3)
-	{
-		if ((ft_strcmp(argv[2], save) != 0))
-			error("Wrong argument");
-	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd <= 2)
 		error("fd error");
 	return (fd);
+}
+
+void	check_essential_element(t_render *render)
+{
+	if (render->world.ambient_light == NULL
+		|| render->world.cam == NULL
+		|| render->world.light == NULL)
+		error("Missing essential element in file");
 }
 
 void	parsing(int argc, char *argv[], t_render *render)
@@ -81,5 +82,6 @@ void	parsing(int argc, char *argv[], t_render *render)
 		if (res == 0)
 			break ;
 	}
+	check_essential_element(render);
 	close(parser.fd);
 }

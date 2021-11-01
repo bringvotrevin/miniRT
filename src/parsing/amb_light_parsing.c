@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 04:41:04 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 17:33:23 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 19:51:23 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_vec	*save_amb_light(double light_ratio, t_vec *rgb)
 	alloc_rgb = (t_vec *)malloc(sizeof(t_vec));
 	if (alloc_rgb == NULL)
 		return (NULL);
-	*alloc_rgb = product_vec(*rgb, light_ratio / 255);
+	*alloc_rgb = product_scalar(*rgb, light_ratio / 255);
 	return (alloc_rgb);
 }
 
@@ -46,13 +46,13 @@ void	amb_light_parsing(t_render *render, char **split_line)
 		error("Information count error on Ambient lightning");
 	if (!validate_float(split_line[1]) \
 		|| !validate_vec(split_line[2]))
-		error("Information error on Ambien lightning");
+		error("Information error on Ambient lightning");
 	light_ratio = ft_atof(split_line[1]);
 	split_vec(&rgb, split_line[2]);
 	if (!validate_amb_light(light_ratio, &rgb))
 		error("Information range error on Ambient lightning");
 	if (render->world.ambient_light != NULL)
-		error("duplicated element");
+		error("Duplicated element on Ambient lightning");
 	render->world.ambient_light = save_amb_light(light_ratio, &rgb);
 	if (render->world.ambient_light == NULL)
 		error(NULL);

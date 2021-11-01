@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:53:08 by dim               #+#    #+#             */
-/*   Updated: 2021/10/28 17:33:32 by dim              ###   ########.fr       */
+/*   Updated: 2021/11/01 17:14:38 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	cam_parsing(t_render *render, char **split_line)
 	if (!validate_cam(orient, fov))
 		error("Information range error on Camera");
 	if (render->world.cam != NULL)
-		error("duplicated element");
+		error("Duplicated element on Camera");
 	render->world.cam = save_cam(viewpoint, orient, fov);
 	if (render->world.cam == NULL)
 		error(NULL);
